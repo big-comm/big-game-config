@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=BigLinux Game Config
+Name[pt]=Configuração de Jogos do BigLinux
+GenericName=Game Setup
+GenericName[pt]=Configuração de Jogos
+Comment=Install and manage your gaming applications and tools on BigLinux
+Comment[pt]=Instale e gerencie seus aplicativos e ferramentas de jogos no BigLinux
+Exec=big-game-config
+Icon=big-game-config
+StartupWMClass=org.communitybig.big-game-config
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Game;Settings;System;
+Keywords=game;steam;heroic;gog;epic;launcher;mangohud;goverlay;proton;
+Keywords[pt]=jogo;steam;heroic;gog;epic;lançador;mangohud;goverlay;proton;
