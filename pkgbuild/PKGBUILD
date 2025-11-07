@@ -2,13 +2,16 @@
 
 pkgname=pkgbuild-template-translate
 pkgdesc="Package template for BigCommunity"
-# Uncomment and edit the following lines as needed
-#depends=('')
+depends=(
+	'gtk4'
+	'libadwaita'
+	'python'
+)
 #makedepends=('')
 #optdepends=('')
-#conflicts=('')
+conflicts=('biglinux-game-config')
 #provides=('')
-#replaces=('')
+replaces=('biglinux-game-config')
 pkgver=$(date +%y.%m.%d)
 pkgrel=$(date +%H%M)
 arch=('any')
