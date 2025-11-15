@@ -21,3 +21,6 @@ class BigGameConfigApplication(Gtk.Application):
 def main():
     app = BigGameConfigApplication()
     return app.run(sys.argv)
+
+if __name__ == "__main__":
+    sys.exit(main())
