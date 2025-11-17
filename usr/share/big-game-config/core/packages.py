@@ -14,13 +14,13 @@ def get_packages():
             "name": "Steam Acolyte",
             "description": "Permite o login em múltiplas contas da Steam simultaneamente.",
             "package_name": "steam-acolyte",
-            "icon": "steam-acolyte"  
+            "icon": "acolyte"  # Alterado para corresponder a acolyte.svg
         },
         {
             "name": "Heroic Games Launcher",
             "description": "Lançador para jogos da Epic Games, GOG e Prime Gaming.",
             "package_name": "heroic-games-launcher",
-            "icon": "heroic-games-launcher"
+            "icon": "heroic" # Alterado para corresponder a heroic.svg
         },
         {
             "name": "MangoHud",
@@ -44,7 +44,7 @@ def get_packages():
             "name": "ProtonPlus",
             "description": "Gerenciador para versões customizadas do Proton (Proton-GE).",
             "package_name": "protonplus",
-            "icon": "protonplus" # Ícone sugestivo
+            "icon": "protonplus" # Ícone sugestivo (sem arquivo .svg correspondente ainda)
         },
         {
             "name": "CoreCtrl",
@@ -56,7 +56,7 @@ def get_packages():
             "name": "LACT",
             "description": "Ferramenta para monitorar e controlar GPUs AMD.",
             "package_name": "lact",
-            "icon": "lact" 
+            "icon": "lact"
         },
         {
             "name": "GreenWithEnvy (GWE)",
@@ -68,13 +68,13 @@ def get_packages():
             "name": "RetroArch",
             "description": "Frontend para emuladores, permitindo jogar games de diversos consoles.",
             "package_name": "retroarch",
-            "icon": "retroarch"
+            "icon": "retroarch" # Sem arquivo .svg correspondente ainda
         },
         {
             "name": "PCSX2",
             "description": "Emulador de PlayStation 2.",
             "package_name": "pcsx2",
-            "icon": "pcsx2"
+            "icon": "PCSX2" # Alterado para corresponder a PCSX2.svg (maiúsculas)
         },
         {
             "name": "RPCS3",
