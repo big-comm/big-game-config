@@ -15,6 +15,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: attranslate\n"
 # 
+# File: usr/share/big-game-config/ui/window.py, line: 30
+#: NEEDS WORK
+msgid "BigLinux Game Config"
+msgstr "BigLinux Herní Konfigurace"
+# 
+# File: usr/share/big-game-config/main.py, line: 50
+#: NEEDS WORK
+msgid "translator-credits"
+msgstr "překladatelské kredity"
+# 
+# File: usr/share/big-game-config/main.py, line: 52
+#: NEEDS WORK
+msgid ""
+"Install and manage your gaming applications and tools.\n"
+"Supports game launchers, performance tools, hardware utilities, and emulators."
+msgstr ""
+"Nainstalujte a spravujte své herní aplikace a nástroje. Podporuje spouštěče her, nástroje pro "
+"výkon, hardwarové utilitky a emulátory."
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 47
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 72
 #: NEEDS WORK
@@ -97,11 +116,6 @@ msgstr "Odstranit"
 #: NEEDS WORK
 msgid "Install"
 msgstr "Nainstalovat"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 30
-#: NEEDS WORK
-msgid "BigLinux Game Config"
-msgstr "BigLinux Herní Konfigurace"
 # 
 # File: usr/share/big-game-config/ui/window.py, line: 49
 #: NEEDS WORK

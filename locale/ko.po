@@ -15,6 +15,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: attranslate\n"
 # 
+# File: usr/share/big-game-config/ui/window.py, line: 30
+#: NEEDS WORK
+msgid "BigLinux Game Config"
+msgstr "빅리눅스 게임 설정"
+# 
+# File: usr/share/big-game-config/main.py, line: 50
+#: NEEDS WORK
+msgid "translator-credits"
+msgstr "번역가 크레딧"
+# 
+# File: usr/share/big-game-config/main.py, line: 52
+#: NEEDS WORK
+msgid ""
+"Install and manage your gaming applications and tools.\n"
+"Supports game launchers, performance tools, hardware utilities, and emulators."
+msgstr ""
+"게임 애플리케이션 및 도구를 설치하고 관리하세요.  \n"
+"게임 런처, 성능 도구, 하드웨어 유틸리티 및 에뮬레이터를 지원합니다."
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 47
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 72
 #: NEEDS WORK
@@ -97,11 +116,6 @@ msgstr "제거"
 #: NEEDS WORK
 msgid "Install"
 msgstr "설치"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 30
-#: NEEDS WORK
-msgid "BigLinux Game Config"
-msgstr "빅리눅스 게임 설정"
 # 
 # File: usr/share/big-game-config/ui/window.py, line: 49
 #: NEEDS WORK

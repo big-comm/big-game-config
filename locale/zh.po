@@ -15,6 +15,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: attranslate\n"
 # 
+# File: usr/share/big-game-config/ui/window.py, line: 30
+#: NEEDS WORK
+msgid "BigLinux Game Config"
+msgstr "大Linux游戏配置"
+# 
+# File: usr/share/big-game-config/main.py, line: 50
+#: NEEDS WORK
+msgid "translator-credits"
+msgstr "翻译者致谢"
+# 
+# File: usr/share/big-game-config/main.py, line: 52
+#: NEEDS WORK
+msgid ""
+"Install and manage your gaming applications and tools.\n"
+"Supports game launchers, performance tools, hardware utilities, and emulators."
+msgstr ""
+"安装和管理您的游戏应用程序和工具。  \n"
+"支持游戏启动器、性能工具、硬件实用程序和模拟器。"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 47
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 72
 #: NEEDS WORK
@@ -97,11 +116,6 @@ msgstr "移除"
 #: NEEDS WORK
 msgid "Install"
 msgstr "安装"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 30
-#: NEEDS WORK
-msgid "BigLinux Game Config"
-msgstr "大Linux游戏配置"
 # 
 # File: usr/share/big-game-config/ui/window.py, line: 49
 #: NEEDS WORK

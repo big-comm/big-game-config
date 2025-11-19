@@ -15,6 +15,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: attranslate\n"
 # 
+# File: usr/share/big-game-config/ui/window.py, line: 30
+#: NEEDS WORK
+msgid "BigLinux Game Config"
+msgstr "BigLinux Игра Конфигурация"
+# 
+# File: usr/share/big-game-config/main.py, line: 50
+#: NEEDS WORK
+msgid "translator-credits"
+msgstr "кредити на преводача"
+# 
+# File: usr/share/big-game-config/main.py, line: 52
+#: NEEDS WORK
+msgid ""
+"Install and manage your gaming applications and tools.\n"
+"Supports game launchers, performance tools, hardware utilities, and emulators."
+msgstr ""
+"Инсталирайте и управлявайте вашите игрови приложения и инструменти. Поддържа стартери на игри, "
+"инструменти за производителност, хардуерни утилити и емулатори."
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 47
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 72
 #: NEEDS WORK
@@ -97,11 +116,6 @@ msgstr "Премахни"
 #: NEEDS WORK
 msgid "Install"
 msgstr "Инсталирай"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 30
-#: NEEDS WORK
-msgid "BigLinux Game Config"
-msgstr "BigLinux Игра Конфигурация"
 # 
 # File: usr/share/big-game-config/ui/window.py, line: 49
 #: NEEDS WORK
