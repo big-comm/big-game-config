@@ -1,7 +1,8 @@
 # Maintainer: Tales A. Mendonça <talesam@gmail.com>
+# Maintainer: Narayan Lima da Silva <narayan.song@gmail.com>
 
-pkgname=pkgbuild-template-translate
-pkgdesc="Package template for BigCommunity"
+pkgname=big-game-config
+pkgdesc="Easily prepare BigLinux for gaming"
 depends=(
 	'gtk4'
 	'libadwaita'

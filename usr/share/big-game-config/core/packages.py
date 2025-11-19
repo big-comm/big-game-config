@@ -11,10 +11,11 @@ def get_packages_by_category():
     Returns a dictionary of package categories with their respective packages.
 
     Returns:
-        dict: Dictionary with category names as keys and lists of package dicts as values
+        dict: Dictionary with category names as keys and lists of package dicts as values.
+              Each category key is a tuple: (icon_name, translated_title)
     """
     return {
-        _("🎮 Game Launchers"): [
+        ("applications-games-symbolic", _("Game Launchers")): [
             {
                 "name": "Steam",
                 "description": _("Main PC game store and launcher."),
@@ -34,7 +35,7 @@ def get_packages_by_category():
                 "icon": "acolyte"
             },
         ],
-        _("📊 Performance Tools"): [
+        ("speedometer-symbolic", _("Performance Tools")): [
             {
                 "name": "MangoHud",
                 "description": _("Displays a HUD to monitor FPS, temperatures and hardware usage."),
@@ -60,7 +61,7 @@ def get_packages_by_category():
                 "icon": "protonplus"
             },
         ],
-        _("⚙️ Hardware & Overclock"): [
+        ("computer-symbolic", _("Hardware & Overclock")): [
             {
                 "name": "CoreCtrl",
                 "description": _("Software for controlling AMD graphics card hardware."),
@@ -80,7 +81,7 @@ def get_packages_by_category():
                 "icon": "gwe"
             },
         ],
-        _("🎲 Emulators"): [
+        ("input-gaming-symbolic", _("Emulators")): [
             {
                 "name": "RetroArch",
                 "description": _("Frontend for emulators, allowing games from various consoles."),

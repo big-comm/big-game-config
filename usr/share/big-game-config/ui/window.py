@@ -133,10 +133,10 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
             return
 
         # Create section for each category
-        for category_name, packages in categories.items():
+        for category_key, packages in categories.items():
             if packages:  # Only show categories with packages
                 section = CategorySection(
-                    category_name,
+                    category_key,  # Pass the full tuple (icon, name)
                     packages,
                     self.base_dir,
                     self._on_install_package,

@@ -7,8 +7,9 @@ import os
 
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
+gi.require_version("GdkPixbuf", "2.0")
 
-from gi.repository import Gtk, Adw, GObject
+from gi.repository import Gtk, Adw, GObject, GdkPixbuf
 from core.pacman import is_package_installed
 from utils.i18n import _
 
@@ -55,12 +56,33 @@ class PackageCard(Gtk.Box):
         icon_box.set_halign(Gtk.Align.CENTER)
         icon_box.set_margin_top(16)
 
-        # Load and display icon
+        # Load and display icon with high quality rendering
         icon_path = os.path.join(self.base_dir, "icons", f"{self.package_info['icon']}.svg")
         if os.path.exists(icon_path):
-            icon = Gtk.Image.new_from_file(icon_path)
-            icon.set_pixel_size(64)
-            icon_box.append(icon)
+            try:
+                # Load SVG at high resolution (2x for crisp display)
+                # Use scale factor for HiDPI displays
+                scale_factor = 2
+                pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
+                    icon_path,
+                    64 * scale_factor,  # width
+                    64 * scale_factor,  # height
+                    True  # preserve aspect ratio
+                )
+
+                # Create texture from pixbuf for GTK4
+                from gi.repository import Gdk
+                texture = Gdk.Texture.new_for_pixbuf(pixbuf)
+
+                icon = Gtk.Image.new_from_paintable(texture)
+                icon.set_pixel_size(64)
+                icon_box.append(icon)
+            except Exception as e:
+                # Fallback to simple file loading if pixbuf fails
+                print(f"Warning: Could not load high-res icon {icon_path}: {e}")
+                icon = Gtk.Image.new_from_file(icon_path)
+                icon.set_pixel_size(64)
+                icon_box.append(icon)
         else:
             # Fallback icon if file not found
             icon = Gtk.Image.new_from_icon_name("application-x-executable")

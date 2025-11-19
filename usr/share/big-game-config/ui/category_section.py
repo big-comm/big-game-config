@@ -7,7 +7,7 @@ import gi
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 
-from gi.repository import Gtk, Adw
+from gi.repository import Gtk, Adw, GLib
 from ui.package_card import PackageCard
 
 
@@ -17,12 +17,12 @@ class CategorySection(Gtk.Box):
     Uses Adwaita PreferencesGroup style for elegant category grouping.
     """
 
-    def __init__(self, category_name, packages, base_dir, on_install, on_remove):
+    def __init__(self, category_key, packages, base_dir, on_install, on_remove):
         """
         Initialize the category section.
 
         Args:
-            category_name (str): Name of the category (e.g., "🎮 Launchers de Jogos")
+            category_key (tuple): Tuple of (icon_name, category_title)
             packages (list): List of package dictionaries in this category
             base_dir (str): Base directory for finding resources
             on_install (callable): Callback function for install button clicks
@@ -30,7 +30,15 @@ class CategorySection(Gtk.Box):
         """
         super().__init__(orientation=Gtk.Orientation.VERTICAL, spacing=12)
 
-        self.category_name = category_name
+        # Extract icon and name from tuple
+        if isinstance(category_key, tuple):
+            self.category_icon = category_key[0]
+            self.category_name = category_key[1]
+        else:
+            # Fallback for old format (string only)
+            self.category_icon = "folder-symbolic"
+            self.category_name = category_key
+
         self.packages = packages
         self.base_dir = base_dir
         self.on_install = on_install
@@ -42,14 +50,22 @@ class CategorySection(Gtk.Box):
     def _build_section(self):
         """Build the category section with title and package grid."""
         # Category header
-        header_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=8)
+        header_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
         header_box.set_margin_top(16)
         header_box.set_margin_bottom(8)
         header_box.set_margin_start(12)
 
+        # Category icon
+        icon = Gtk.Image.new_from_icon_name(self.category_icon)
+        icon.set_pixel_size(24)
+        icon.add_css_class("accent")
+        header_box.append(icon)
+
         # Category title
         title_label = Gtk.Label()
-        title_label.set_markup(f"<span size='large' weight='bold'>{self.category_name}</span>")
+        # Escape special characters like & for markup
+        escaped_name = GLib.markup_escape_text(self.category_name)
+        title_label.set_markup(f"<span size='large' weight='bold'>{escaped_name}</span>")
         title_label.set_halign(Gtk.Align.START)
         header_box.append(title_label)
 
