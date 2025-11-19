@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the big-game-config package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: big-game-config\n"
@@ -13,221 +13,222 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#
+"X-Generator: attranslate\n"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 47
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 72
+#: NEEDS WORK
 msgid "Installing"
-msgstr "Installing"
-
-#
+msgstr "Installieren"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 47
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 72
+#: NEEDS WORK
 msgid "Removing"
-msgstr "Removing"
-
-#
+msgstr "Entfernen"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 99
+#: NEEDS WORK
 msgid "Installation details"
-msgstr "Installation details"
-
-#
+msgstr "Installationsdetails"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 158
+#: NEEDS WORK
 msgid "Cancel"
-msgstr "Cancel"
-
-#
+msgstr "Abbrechen"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 162
+#: NEEDS WORK
 msgid "Close"
-msgstr "Close"
-
-#
+msgstr "Schließen"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 218
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 241
+#: NEEDS WORK
 msgid "Error"
-msgstr "Error"
-
-#
+msgstr "Fehler"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 262
+#: NEEDS WORK
 msgid "installed"
-msgstr "installed"
-
-#
+msgstr "installiert"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 262
+#: NEEDS WORK
 msgid "removed"
-msgstr "removed"
-
-#
+msgstr "entfernt"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 263
+#: NEEDS WORK
 msgid "successfully"
-msgstr "successfully"
-
-#
+msgstr "erfolgreich"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 266
+#: NEEDS WORK
 msgid "install"
-msgstr "install"
-
-#
+msgstr "installieren"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 266
+#: NEEDS WORK
 msgid "remove"
-msgstr "remove"
-
-#
+msgstr "entfernen"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 267
+#: NEEDS WORK
 msgid "Failed to"
-msgstr "Failed to"
-
-#
+msgstr "Fehler beim"
+# 
 # File: usr/share/big-game-config/ui/package_card.py, line: 156
+#: NEEDS WORK
 msgid "Installed"
-msgstr "Installed"
-
-#
+msgstr "Installiert"
+# 
 # File: usr/share/big-game-config/ui/package_card.py, line: 161
+#: NEEDS WORK
 msgid "Not installed"
-msgstr "Not installed"
-
-#
+msgstr "Nicht installiert"
+# 
 # File: usr/share/big-game-config/ui/package_card.py, line: 178
+#: NEEDS WORK
 msgid "Remove"
-msgstr "Remove"
-
-#
+msgstr "Entfernen"
+# 
 # File: usr/share/big-game-config/ui/package_card.py, line: 182
+#: NEEDS WORK
 msgid "Install"
-msgstr "Install"
-
-#
+msgstr "Installieren"
+# 
 # File: usr/share/big-game-config/ui/window.py, line: 30
+#: NEEDS WORK
 msgid "BigLinux Game Config"
-msgstr "BigLinux Game Config"
-
-#
+msgstr "BigLinux Spielkonfiguration"
+# 
 # File: usr/share/big-game-config/ui/window.py, line: 49
+#: NEEDS WORK
 msgid "Search packages..."
-msgstr "Search packages..."
-
-#
+msgstr "Pakete suchen..."
+# 
 # File: usr/share/big-game-config/ui/window.py, line: 57
+#: NEEDS WORK
 msgid "Refresh package status"
-msgstr "Refresh package status"
-
-#
+msgstr "Paketstatus aktualisieren"
+# 
 # File: usr/share/big-game-config/ui/window.py, line: 64
+#: NEEDS WORK
 msgid "Menu"
-msgstr "Menu"
-
-#
+msgstr "Menü"
+# 
 # File: usr/share/big-game-config/ui/window.py, line: 68
+#: NEEDS WORK
 msgid "About"
-msgstr "About"
-
-#
+msgstr "Über"
+# 
 # File: usr/share/big-game-config/ui/window.py, line: 69
+#: NEEDS WORK
 msgid "Quit"
-msgstr "Quit"
-
-#
+msgstr "Beenden"
+# 
 # File: usr/share/big-game-config/ui/window.py, line: 129
+#: NEEDS WORK
 msgid "No packages found"
-msgstr "No packages found"
-
-#
+msgstr "Keine Pakete gefunden"
+# 
 # File: usr/share/big-game-config/ui/window.py, line: 130
+#: NEEDS WORK
 msgid "Try adjusting your search"
-msgstr "Try adjusting your search"
-
-#
+msgstr "Versuchen Sie, Ihre Suche anzupassen"
+# 
 # File: usr/share/big-game-config/ui/window.py, line: 179
+#: NEEDS WORK
 msgid "Package status updated"
-msgstr "Package status updated"
-
-#
+msgstr "Paketstatus aktualisiert"
+# 
 # File: usr/share/big-game-config/ui/window.py, line: 227
+#: NEEDS WORK
 msgid "Operation completed"
-msgstr "Operation completed"
-
-#
+msgstr "Vorgang abgeschlossen"
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 18
+#: NEEDS WORK
 msgid "Game Launchers"
-msgstr "Game Launchers"
-
-#
+msgstr "Spiele-Launcher"
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 21
+#: NEEDS WORK
 msgid "Main PC game store and launcher."
-msgstr "Main PC game store and launcher."
-
-#
+msgstr "Haupt-PC-Spieleshop und Launcher."
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 27
+#: NEEDS WORK
 msgid "Launcher for Epic Games, GOG and Prime Gaming."
-msgstr "Launcher for Epic Games, GOG and Prime Gaming."
-
-#
+msgstr "Launcher für Epic Games, GOG und Prime Gaming."
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 33
+#: NEEDS WORK
 msgid "Allows logging into multiple Steam accounts simultaneously."
-msgstr "Allows logging into multiple Steam accounts simultaneously."
-
-#
+msgstr "Ermöglicht das gleichzeitige Anmelden bei mehreren Steam-Konten."
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 38
+#: NEEDS WORK
 msgid "Performance Tools"
-msgstr "Performance Tools"
-
-#
+msgstr "Leistungswerkzeuge"
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 41
+#: NEEDS WORK
 msgid "Displays a HUD to monitor FPS, temperatures and hardware usage."
-msgstr "Displays a HUD to monitor FPS, temperatures and hardware usage."
-
-#
+msgstr "Zeigt ein HUD an, um FPS, Temperaturen und Hardware-Nutzung zu überwachen."
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 47
+#: NEEDS WORK
 msgid "Graphical interface to manage and configure MangoHud."
-msgstr "Graphical interface to manage and configure MangoHud."
-
-#
+msgstr "Grafische Benutzeroberfläche zur Verwaltung und Konfiguration von MangoHud."
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 53
+#: NEEDS WORK
 msgid "Tool for Vulkan layer injection, used with MangoHud."
-msgstr "Tool for Vulkan layer injection, used with MangoHud."
-
-#
+msgstr "Werkzeug zur Vulkan-Schichtinjektion, verwendet mit MangoHud."
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 59
+#: NEEDS WORK
 msgid "Manager for custom Proton versions (Proton-GE)."
-msgstr "Manager for custom Proton versions (Proton-GE)."
-
-#
+msgstr "Manager für benutzerdefinierte Proton-Versionen (Proton-GE)."
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 64
+#: NEEDS WORK
 msgid "Hardware & Overclock"
-msgstr "Hardware & Overclock"
-
-#
+msgstr "Hardware & Übertaktung"
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 67
+#: NEEDS WORK
 msgid "Software for controlling AMD graphics card hardware."
-msgstr "Software for controlling AMD graphics card hardware."
-
-#
+msgstr "Software zur Steuerung der AMD-Grafikkartenhardware."
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 73
+#: NEEDS WORK
 msgid "Tool to monitor and control AMD GPUs."
-msgstr "Tool to monitor and control AMD GPUs."
-
-#
+msgstr "Werkzeug zur Überwachung und Steuerung von AMD-GPUs."
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 79
+#: NEEDS WORK
 msgid "Interface to monitor and overclock NVIDIA graphics cards."
-msgstr "Interface to monitor and overclock NVIDIA graphics cards."
-
-#
+msgstr "Schnittstelle zur Überwachung und Übertaktung von NVIDIA-Grafikkarten."
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 84
+#: NEEDS WORK
 msgid "Emulators"
-msgstr "Emulators"
-
-#
+msgstr "Emulatoren"
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 87
+#: NEEDS WORK
 msgid "Frontend for emulators, allowing games from various consoles."
-msgstr "Frontend for emulators, allowing games from various consoles."
-
-#
+msgstr "Frontend für Emulatoren, die Spiele von verschiedenen Konsolen ermöglichen."
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 93
+#: NEEDS WORK
 msgid "PlayStation 2 emulator."
-msgstr "PlayStation 2 emulator."
-
-#
+msgstr "PlayStation 2-Emulator."
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 99
+#: NEEDS WORK
 msgid "PlayStation 3 emulator."
-msgstr "PlayStation 3 emulator."
+msgstr "PlayStation 3-Emulator."

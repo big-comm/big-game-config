@@ -3,231 +3,231 @@
 # This file is distributed under the same license as the big-game-config package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-msgid ""
-msgstr ""
-"Project-Id-Version: big-game-config\n"
-"Report-Msgid-Bugs-To: \n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+#, fuzzy
+msgid   ""
+msgstr  "Project-Id-Version: big-game-config\n"
+        "Report-Msgid-Bugs-To: \n"
+        "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+        "Language-Team: LANGUAGE <LL@li.org>\n"
+        "Language: \n"
+        "MIME-Version: 1.0\n"
+        "Content-Type: text/plain; charset=UTF-8\n"
+        "Content-Transfer-Encoding: 8bit\n"
 
 #
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 47
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 72
-msgid "Installing"
-msgstr "Installing"
+msgid   "Installing"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 47
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 72
-msgid "Removing"
-msgstr "Removing"
+msgid   "Removing"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 99
-msgid "Installation details"
-msgstr "Installation details"
+msgid   "Installation details"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 158
-msgid "Cancel"
-msgstr "Cancel"
+msgid   "Cancel"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 162
-msgid "Close"
-msgstr "Close"
+msgid   "Close"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 218
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 241
-msgid "Error"
-msgstr "Error"
+msgid   "Error"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 262
-msgid "installed"
-msgstr "installed"
+msgid   "installed"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 262
-msgid "removed"
-msgstr "removed"
+msgid   "removed"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 263
-msgid "successfully"
-msgstr "successfully"
+msgid   "successfully"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 266
-msgid "install"
-msgstr "install"
+msgid   "install"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 266
-msgid "remove"
-msgstr "remove"
+msgid   "remove"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 267
-msgid "Failed to"
-msgstr "Failed to"
+msgid   "Failed to"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/package_card.py, line: 156
-msgid "Installed"
-msgstr "Installed"
+msgid   "Installed"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/package_card.py, line: 161
-msgid "Not installed"
-msgstr "Not installed"
+msgid   "Not installed"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/package_card.py, line: 178
-msgid "Remove"
-msgstr "Remove"
+msgid   "Remove"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/package_card.py, line: 182
-msgid "Install"
-msgstr "Install"
+msgid   "Install"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/window.py, line: 30
-msgid "BigLinux Game Config"
-msgstr "BigLinux Game Config"
+msgid   "BigLinux Game Config"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/window.py, line: 49
-msgid "Search packages..."
-msgstr "Search packages..."
+msgid   "Search packages..."
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/window.py, line: 57
-msgid "Refresh package status"
-msgstr "Refresh package status"
+msgid   "Refresh package status"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/window.py, line: 64
-msgid "Menu"
-msgstr "Menu"
+msgid   "Menu"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/window.py, line: 68
-msgid "About"
-msgstr "About"
+msgid   "About"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/window.py, line: 69
-msgid "Quit"
-msgstr "Quit"
+msgid   "Quit"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/window.py, line: 129
-msgid "No packages found"
-msgstr "No packages found"
+msgid   "No packages found"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/window.py, line: 130
-msgid "Try adjusting your search"
-msgstr "Try adjusting your search"
+msgid   "Try adjusting your search"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/window.py, line: 179
-msgid "Package status updated"
-msgstr "Package status updated"
+msgid   "Package status updated"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/ui/window.py, line: 227
-msgid "Operation completed"
-msgstr "Operation completed"
+msgid   "Operation completed"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 18
-msgid "Game Launchers"
-msgstr "Game Launchers"
+msgid   "Game Launchers"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 21
-msgid "Main PC game store and launcher."
-msgstr "Main PC game store and launcher."
+msgid   "Main PC game store and launcher."
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 27
-msgid "Launcher for Epic Games, GOG and Prime Gaming."
-msgstr "Launcher for Epic Games, GOG and Prime Gaming."
+msgid   "Launcher for Epic Games, GOG and Prime Gaming."
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 33
-msgid "Allows logging into multiple Steam accounts simultaneously."
-msgstr "Allows logging into multiple Steam accounts simultaneously."
+msgid   "Allows logging into multiple Steam accounts simultaneously."
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 38
-msgid "Performance Tools"
-msgstr "Performance Tools"
+msgid   "Performance Tools"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 41
-msgid "Displays a HUD to monitor FPS, temperatures and hardware usage."
-msgstr "Displays a HUD to monitor FPS, temperatures and hardware usage."
+msgid   "Displays a HUD to monitor FPS, temperatures and hardware usage."
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 47
-msgid "Graphical interface to manage and configure MangoHud."
-msgstr "Graphical interface to manage and configure MangoHud."
+msgid   "Graphical interface to manage and configure MangoHud."
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 53
-msgid "Tool for Vulkan layer injection, used with MangoHud."
-msgstr "Tool for Vulkan layer injection, used with MangoHud."
+msgid   "Tool for Vulkan layer injection, used with MangoHud."
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 59
-msgid "Manager for custom Proton versions (Proton-GE)."
-msgstr "Manager for custom Proton versions (Proton-GE)."
+msgid   "Manager for custom Proton versions (Proton-GE)."
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 64
-msgid "Hardware & Overclock"
-msgstr "Hardware & Overclock"
+msgid   "Hardware & Overclock"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 67
-msgid "Software for controlling AMD graphics card hardware."
-msgstr "Software for controlling AMD graphics card hardware."
+msgid   "Software for controlling AMD graphics card hardware."
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 73
-msgid "Tool to monitor and control AMD GPUs."
-msgstr "Tool to monitor and control AMD GPUs."
+msgid   "Tool to monitor and control AMD GPUs."
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 79
-msgid "Interface to monitor and overclock NVIDIA graphics cards."
-msgstr "Interface to monitor and overclock NVIDIA graphics cards."
+msgid   "Interface to monitor and overclock NVIDIA graphics cards."
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 84
-msgid "Emulators"
-msgstr "Emulators"
+msgid   "Emulators"
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 87
-msgid "Frontend for emulators, allowing games from various consoles."
-msgstr "Frontend for emulators, allowing games from various consoles."
+msgid   "Frontend for emulators, allowing games from various consoles."
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 93
-msgid "PlayStation 2 emulator."
-msgstr "PlayStation 2 emulator."
+msgid   "PlayStation 2 emulator."
+msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 99
-msgid "PlayStation 3 emulator."
-msgstr "PlayStation 3 emulator."
+msgid   "PlayStation 3 emulator."
+msgstr  ""
