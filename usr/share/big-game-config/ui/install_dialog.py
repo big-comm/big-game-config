@@ -4,14 +4,12 @@ Shows real-time installation progress with beautiful terminal output.
 """
 
 import gi
-import threading
 
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 gi.require_version("Vte", "3.91")
 
-from gi.repository import Gtk, Adw, Vte, GLib, Gio
-from core.installer import PackageInstaller
+from gi.repository import Gtk, Adw, Vte, GLib
 from core.terminal_colors import apply_theme_to_terminal
 from utils.i18n import _
 
@@ -35,9 +33,9 @@ class InstallDialog(Adw.Window):
 
         self.package_name = package_name
         self.operation = operation
-        self.installer = PackageInstaller()
         self.is_complete = False
         self.success = False
+        self.child_pid = None
 
         # Set up dialog properties
         self.set_transient_for(parent)
@@ -51,8 +49,8 @@ class InstallDialog(Adw.Window):
         # Build UI
         self._build_ui()
 
-        # Start operation in background thread
-        threading.Thread(target=self._run_operation, daemon=True).start()
+        # Start operation
+        GLib.idle_add(self._run_operation)
 
     def _build_ui(self):
         """Build the dialog user interface."""
@@ -135,6 +133,9 @@ class InstallDialog(Adw.Window):
         font_desc = Pango.FontDescription.from_string("Monospace 10")
         self.terminal.set_font(font_desc)
 
+        # Connect child-exited signal
+        self.terminal.connect("child-exited", self._on_child_exited)
+
         scrolled_window.set_child(self.terminal)
         terminal_frame.set_child(scrolled_window)
         self.revealer.set_child(terminal_frame)
@@ -190,59 +191,57 @@ class InstallDialog(Adw.Window):
         Args:
             text (str): Text to write
         """
-        def write():
-            self.terminal.feed(text.encode('utf-8'))
-            return False
-
-        GLib.idle_add(write)
+        self.terminal.feed(text.encode('utf-8'))
 
     def _run_operation(self):
-        """Run the installation/removal operation in background thread."""
-        # Write command to terminal
-        if self.operation == "install":
-            command = self.installer.get_install_command(self.package_name)
-        else:
-            command = self.installer.get_remove_command(self.package_name)
-
-        self._write_to_terminal(f"$ {command}\n\n")
-
-        # Spawn the command in the terminal
+        """Run the installation/removal operation."""
         try:
+            # Build command
             if self.operation == "install":
                 argv = ["pkexec", "pacman", "-S", "--noconfirm", self.package_name]
+                command_display = f"pkexec pacman -S --noconfirm {self.package_name}"
             else:
                 argv = ["pkexec", "pacman", "-R", "--noconfirm", self.package_name]
+                command_display = f"pkexec pacman -R --noconfirm {self.package_name}"
 
-            def on_spawn_finish(terminal, pid, error, user_data):
-                if error:
-                    self._write_to_terminal(f"\n{_('Error')}: {error.message}\n")
-                    self._on_operation_complete(False)
-                else:
-                    # Watch for child process exit
-                    self.terminal.connect("child-exited", self._on_child_exited)
+            self._write_to_terminal(f"$ {command_display}\n\n")
 
-            GLib.idle_add(
-                lambda: self.terminal.spawn_async(
-                    Vte.PtyFlags.DEFAULT,
-                    None,  # working directory
-                    argv,
-                    None,  # environment
-                    GLib.SpawnFlags.DEFAULT,
-                    None,  # child setup
-                    None,  # child setup data
-                    -1,    # timeout
-                    None,  # cancellable
-                    on_spawn_finish,
-                    None   # user data
-                )
+            # Spawn process in terminal
+            self.terminal.spawn_async(
+                Vte.PtyFlags.DEFAULT,
+                None,  # working directory
+                argv,
+                None,  # environment
+                GLib.SpawnFlags.DO_NOT_REAP_CHILD,
+                None,  # child setup
+                None,  # child setup data
+                -1,    # timeout
+                None,  # cancellable
+                self._on_spawn_complete,
+                None   # user data
             )
 
         except Exception as e:
             self._write_to_terminal(f"\n{_('Error')}: {str(e)}\n")
             self._on_operation_complete(False)
 
+        return False  # Remove idle source
+
+    def _on_spawn_complete(self, terminal, pid, error, user_data):
+        """Called when spawn completes."""
+        if error:
+            self._write_to_terminal(f"\n{_('Error')}: {error.message}\n")
+            self._on_operation_complete(False)
+        else:
+            self.child_pid = pid
+            # Process will exit and trigger child-exited signal
+
     def _on_child_exited(self, terminal, status):
         """Handle child process exit."""
+        # Check if already completed to avoid double-trigger
+        if self.is_complete:
+            return
+
         success = status == 0
         self._on_operation_complete(success)
 
@@ -253,38 +252,67 @@ class InstallDialog(Adw.Window):
         Args:
             success (bool): Whether the operation succeeded
         """
+        if self.is_complete:
+            return  # Avoid double completion
+
         self.is_complete = True
         self.success = success
 
-        def update_ui():
-            # Update status label
-            if success:
-                operation_text = _("installed") if self.operation == "install" else _("removed")
-                status_text = f"✓ {self.package_name} {operation_text} {_('successfully')}!"
-                self.status_label.set_markup(f"<span size='large' weight='bold' foreground='#26A269'>{status_text}</span>")
-            else:
-                operation_text = _("install") if self.operation == "install" else _("remove")
-                status_text = f"✗ {_('Failed to')} {operation_text} {self.package_name}"
-                self.status_label.set_markup(f"<span size='large' weight='bold' foreground='#C01C28'>{status_text}</span>")
+        # Update desktop database if installation was successful
+        if success and self.operation == "install":
+            GLib.timeout_add(500, self._update_desktop_database)
 
-            # Update progress bar
-            self.progress_bar.set_fraction(1.0 if success else 0.0)
+        # Update status label
+        if success:
+            operation_text = _("installed") if self.operation == "install" else _("removed")
+            status_text = f"✓ {self.package_name} {operation_text} {_('successfully')}!"
+            self.status_label.set_markup(f"<span size='large' weight='bold' foreground='#26A269'>{status_text}</span>")
+        else:
+            operation_text = _("install") if self.operation == "install" else _("remove")
+            status_text = f"✗ {_('Failed to')} {operation_text} {self.package_name}"
+            self.status_label.set_markup(f"<span size='large' weight='bold' foreground='#C01C28'>{status_text}</span>")
 
-            # Enable close button, disable cancel
-            self.close_button.set_sensitive(True)
-            self.cancel_button.set_sensitive(False)
+        # Update progress bar
+        self.progress_bar.set_fraction(1.0 if success else 0.0)
 
-            # Auto-expand terminal on error
-            if not success and not self.revealer.get_reveal_child():
-                self._toggle_terminal(None)
+        # Enable close button, disable cancel
+        self.close_button.set_sensitive(True)
+        self.cancel_button.set_sensitive(False)
 
-            return False
+        # Auto-expand terminal on error
+        if not success and not self.revealer.get_reveal_child():
+            self._toggle_terminal(None)
 
-        GLib.idle_add(update_ui)
+    def _update_desktop_database(self):
+        """Update desktop database and icon cache after installation."""
+        try:
+            import subprocess
+            # Update desktop database
+            subprocess.run(
+                ["update-desktop-database", "-q"],
+                capture_output=True,
+                timeout=10
+            )
+            # Update icon cache
+            subprocess.run(
+                ["gtk-update-icon-cache", "-f", "-t", "/usr/share/icons/hicolor"],
+                capture_output=True,
+                timeout=10
+            )
+        except Exception as e:
+            print(f"Warning: Could not update desktop database: {e}")
+
+        return False  # Remove timeout source
 
     def _on_cancel(self, button):
         """Handle cancel button click."""
-        # TODO: Implement process termination if needed
+        if self.child_pid and not self.is_complete:
+            try:
+                import os
+                import signal
+                os.kill(self.child_pid, signal.SIGTERM)
+            except:
+                pass
         self.close()
 
     def _on_close(self, button):

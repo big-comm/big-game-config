@@ -36,6 +36,42 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
         # Build UI
         self._build_ui()
 
+        # Load custom CSS after UI is built
+        self._load_css()
+
+    def _load_css(self):
+        """Load custom CSS styles for the application."""
+        css_provider = Gtk.CssProvider()
+
+        # Define CSS inline with higher specificity
+        # Using !important to override Adwaita defaults
+        css_data = """
+        /* Compact buttons - 30% smaller */
+        button.compact-button {
+            padding: 4px 10px !important;
+            min-height: 26px !important;
+            min-width: 60px !important;
+            font-size: 13px !important;
+        }
+
+        button.compact-button.suggested-action,
+        button.compact-button.destructive-action {
+            padding: 4px 10px !important;
+            min-height: 26px !important;
+        }
+        """
+
+        try:
+            css_provider.load_from_data(css_data.encode('utf-8'))
+            Gtk.StyleContext.add_provider_for_display(
+                self.get_display(),
+                css_provider,
+                Gtk.STYLE_PROVIDER_PRIORITY_USER
+            )
+            print("✓ CSS loaded with USER priority")
+        except Exception as e:
+            print(f"Warning: Could not load CSS: {e}")
+
     def _build_ui(self):
         """Build the main window UI."""
         # Main container

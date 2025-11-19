@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+"""
+BigLinux Game Config launcher script.
+This script sets up the environment and launches the main application.
+"""
+
+import sys
+import os
+
+# Add the application directory to Python path
+app_dir = "/usr/share/big-game-config"
+if os.path.exists(app_dir):
+    sys.path.insert(0, app_dir)
+else:
+    # Running from source - use relative path
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    app_dir = os.path.join(os.path.dirname(script_dir), "share", "big-game-config")
+    if os.path.exists(app_dir):
+        sys.path.insert(0, app_dir)
+
+# Import and run the main application
+from main import main
+
+if __name__ == "__main__":
+    sys.exit(main())
