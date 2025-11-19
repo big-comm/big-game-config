@@ -1,0 +1,91 @@
+# CLAUDE.md - AI assistant documentation (local only)
+CLAUDE.md
+
+# Example files directory
+Exemplo/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.pytest_cache/
+
+# Translations (compiled files - source .po files are kept)
+*.mo
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+.*.swp
+
+# Build artifacts from PKGBUILD
+pkg/
+src/
+*.pkg.tar.*
+*.src.tar.gz
+
+# Editor backup files
+*~
+*.bak
+*.orig

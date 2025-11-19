@@ -1,85 +1,153 @@
-def get_packages():
+"""
+Package definitions organized by categories.
+Each package contains metadata for display and installation.
+"""
+
+from utils.i18n import _
+
+
+def get_packages_by_category():
     """
-    Retorna uma lista de dicionários, cada um contendo as informações
-    de um pacote de jogo ou ferramenta para ser exibido na interface.
+    Returns a dictionary of package categories with their respective packages.
+
+    Returns:
+        dict: Dictionary with category names as keys and lists of package dicts as values
     """
-    return [
-        {
-            "name": "Steam",
-            "description": "Principal loja e lançador de jogos para PC.",
-            "package_name": "steam",
-            "icon": "steam"
-        },
-        {
-            "name": "Steam Acolyte",
-            "description": "Permite o login em múltiplas contas da Steam simultaneamente.",
-            "package_name": "steam-acolyte",
-            "icon": "acolyte"  # Alterado para corresponder a acolyte.svg
-        },
-        {
-            "name": "Heroic Games Launcher",
-            "description": "Lançador para jogos da Epic Games, GOG e Prime Gaming.",
-            "package_name": "heroic-games-launcher",
-            "icon": "heroic" # Alterado para corresponder a heroic.svg
-        },
-        {
-            "name": "MangoHud",
-            "description": "Exibe um HUD para monitorar FPS, temperaturas e uso de hardware.",
-            "package_name": "mangohud",
-            "icon": "mangohud"
-        },
-        {
-            "name": "GOverlay",
-            "description": "Interface gráfica para gerenciar e configurar o MangoHud.",
-            "package_name": "goverlay",
-            "icon": "goverlay"
-        },
-        {
-            "name": "MangoJuice",
-            "description": "Ferramenta para injeção de camadas Vulkan, usada com MangoHud.",
-            "package_name": "mangojuice-bin",
-            "icon": "mangojuice"
-        },
-        {
-            "name": "ProtonPlus",
-            "description": "Gerenciador para versões customizadas do Proton (Proton-GE).",
-            "package_name": "protonplus",
-            "icon": "protonplus" # Ícone sugestivo (sem arquivo .svg correspondente ainda)
-        },
-        {
-            "name": "CoreCtrl",
-            "description": "Software para controle de hardware de placas de vídeo AMD.",
-            "package_name": "corectrl",
-            "icon": "corectrl"
-        },
-        {
-            "name": "LACT",
-            "description": "Ferramenta para monitorar e controlar GPUs AMD.",
-            "package_name": "lact",
-            "icon": "lact"
-        },
-        {
-            "name": "GreenWithEnvy (GWE)",
-            "description": "Interface para monitorar e fazer overclock em placas de vídeo NVIDIA.",
-            "package_name": "gwe",
-            "icon": "gwe"
-        },
-        {
-            "name": "RetroArch",
-            "description": "Frontend para emuladores, permitindo jogar games de diversos consoles.",
-            "package_name": "retroarch",
-            "icon": "retroarch" # Sem arquivo .svg correspondente ainda
-        },
-        {
-            "name": "PCSX2",
-            "description": "Emulador de PlayStation 2.",
-            "package_name": "pcsx2",
-            "icon": "PCSX2" # Alterado para corresponder a PCSX2.svg (maiúsculas)
-        },
-        {
-            "name": "RPCS3",
-            "description": "Emulador de PlayStation 3.",
-            "package_name": "rpcs3-bin",
-            "icon": "rpcs3"
-        }
-    ]
+    return {
+        _("🎮 Game Launchers"): [
+            {
+                "name": "Steam",
+                "description": _("Main PC game store and launcher."),
+                "package_name": "steam",
+                "icon": "steam"
+            },
+            {
+                "name": "Heroic Games Launcher",
+                "description": _("Launcher for Epic Games, GOG and Prime Gaming."),
+                "package_name": "heroic-games-launcher",
+                "icon": "heroic"
+            },
+            {
+                "name": "Steam Acolyte",
+                "description": _("Allows logging into multiple Steam accounts simultaneously."),
+                "package_name": "steam-acolyte",
+                "icon": "acolyte"
+            },
+        ],
+        _("📊 Performance Tools"): [
+            {
+                "name": "MangoHud",
+                "description": _("Displays a HUD to monitor FPS, temperatures and hardware usage."),
+                "package_name": "mangohud",
+                "icon": "mangohud"
+            },
+            {
+                "name": "GOverlay",
+                "description": _("Graphical interface to manage and configure MangoHud."),
+                "package_name": "goverlay",
+                "icon": "goverlay"
+            },
+            {
+                "name": "MangoJuice",
+                "description": _("Tool for Vulkan layer injection, used with MangoHud."),
+                "package_name": "mangojuice-bin",
+                "icon": "mangojuice"
+            },
+            {
+                "name": "ProtonPlus",
+                "description": _("Manager for custom Proton versions (Proton-GE)."),
+                "package_name": "protonplus",
+                "icon": "protonplus"
+            },
+        ],
+        _("⚙️ Hardware & Overclock"): [
+            {
+                "name": "CoreCtrl",
+                "description": _("Software for controlling AMD graphics card hardware."),
+                "package_name": "corectrl",
+                "icon": "corectrl"
+            },
+            {
+                "name": "LACT",
+                "description": _("Tool to monitor and control AMD GPUs."),
+                "package_name": "lact",
+                "icon": "lact"
+            },
+            {
+                "name": "GreenWithEnvy (GWE)",
+                "description": _("Interface to monitor and overclock NVIDIA graphics cards."),
+                "package_name": "gwe",
+                "icon": "gwe"
+            },
+        ],
+        _("🎲 Emulators"): [
+            {
+                "name": "RetroArch",
+                "description": _("Frontend for emulators, allowing games from various consoles."),
+                "package_name": "retroarch",
+                "icon": "Retroarch"
+            },
+            {
+                "name": "PCSX2",
+                "description": _("PlayStation 2 emulator."),
+                "package_name": "pcsx2",
+                "icon": "PCSX2"
+            },
+            {
+                "name": "RPCS3",
+                "description": _("PlayStation 3 emulator."),
+                "package_name": "rpcs3-bin",
+                "icon": "rpcs3"
+            },
+        ]
+    }
+
+
+def get_all_packages():
+    """
+    Returns a flat list of all packages across all categories.
+
+    Returns:
+        list: List of all package dictionaries
+    """
+    packages = []
+    for category_packages in get_packages_by_category().values():
+        packages.extend(category_packages)
+    return packages
+
+
+def search_packages(query):
+    """
+    Search packages by name, description, or category.
+
+    Args:
+        query (str): Search query string
+
+    Returns:
+        dict: Dictionary with matching categories and packages
+    """
+    if not query or query.strip() == "":
+        return get_packages_by_category()
+
+    query_lower = query.lower().strip()
+    results = {}
+
+    categories = get_packages_by_category()
+    for category_name, packages in categories.items():
+        matching_packages = []
+
+        # Check if category name matches
+        category_matches = query_lower in category_name.lower()
+
+        for package in packages:
+            # Check if package name or description matches
+            name_matches = query_lower in package["name"].lower()
+            desc_matches = query_lower in package["description"].lower()
+
+            if name_matches or desc_matches or category_matches:
+                matching_packages.append(package)
+
+        if matching_packages:
+            results[category_name] = matching_packages
+
+    return results
