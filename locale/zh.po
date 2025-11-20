@@ -233,6 +233,16 @@ msgstr "用于监控和控制AMD GPU的工具。"
 msgid "Interface to monitor and overclock NVIDIA graphics cards."
 msgstr "监控和超频NVIDIA显卡的接口。"
 # 
+# File: usr/share/big-game-config/core/packages.py, line: 93
+#: NEEDS WORK
+msgid "Interface to map gamepad buttons."
+msgstr "映射游戏手柄按钮的接口。"
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 100
+#: NEEDS WORK
+msgid "Interface to create macros and map mouse buttons."
+msgstr "创建宏和映射鼠标按钮的接口。"
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 87
 #: NEEDS WORK
 msgid "Frontend for emulators, allowing games from various consoles."

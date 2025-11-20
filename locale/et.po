@@ -233,6 +233,16 @@ msgstr "Tööriist AMD GPU-de jälgimiseks ja juhtimiseks."
 msgid "Interface to monitor and overclock NVIDIA graphics cards."
 msgstr "Liides NVIDIA graafikakaartide jälgimiseks ja ülekiirendamiseks."
 # 
+# File: usr/share/big-game-config/core/packages.py, line: 93
+#: NEEDS WORK
+msgid "Interface to map gamepad buttons."
+msgstr "Liides mängupuldi nuppude kaardistamiseks."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 100
+#: NEEDS WORK
+msgid "Interface to create macros and map mouse buttons."
+msgstr "Liides makrode loomiseks ja hiire nuppude kaardistamiseks."
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 87
 #: NEEDS WORK
 msgid "Frontend for emulators, allowing games from various consoles."

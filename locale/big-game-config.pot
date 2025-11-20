@@ -112,8 +112,8 @@ msgstr  ""
 # #-#-#-#-#  big-game-config.pot (big-game-config)  #-#-#-#-#
 #
 # File: usr/share/big-game-config/ui/package_card.py, line: 178
-# File: usr/share/big-game-config/ui/window.py, line: 327
-# File: usr/share/big-game-config/ui/window.py, line: 366
+# File: usr/share/big-game-config/ui/window.py, line: 330
+# File: usr/share/big-game-config/ui/window.py, line: 369
 msgid   "Remove"
 msgstr  ""
 
@@ -121,8 +121,8 @@ msgstr  ""
 # #-#-#-#-#  big-game-config.pot (big-game-config)  #-#-#-#-#
 #
 # File: usr/share/big-game-config/ui/package_card.py, line: 182
-# File: usr/share/big-game-config/ui/window.py, line: 327
-# File: usr/share/big-game-config/ui/window.py, line: 366
+# File: usr/share/big-game-config/ui/window.py, line: 330
+# File: usr/share/big-game-config/ui/window.py, line: 369
 msgid   "Install"
 msgstr  ""
 
@@ -134,8 +134,8 @@ msgstr  ""
 #
 # File: usr/share/big-game-config/ui/window.py, line: 81
 # File: usr/share/big-game-config/ui/window.py, line: 172
-# File: usr/share/big-game-config/ui/window.py, line: 204
-# File: usr/share/big-game-config/ui/window.py, line: 478
+# File: usr/share/big-game-config/ui/window.py, line: 200
+# File: usr/share/big-game-config/ui/window.py, line: 467
 msgid   "Launchers"
 msgstr  ""
 
@@ -145,9 +145,9 @@ msgstr  ""
 # File: usr/share/big-game-config/ui/window.py, line: 82
 # File: usr/share/big-game-config/ui/window.py, line: 175
 # File: usr/share/big-game-config/ui/window.py, line: 176
-# File: usr/share/big-game-config/ui/window.py, line: 480
-# File: usr/share/big-game-config/ui/window.py, line: 481
-# File: usr/share/big-game-config/core/packages.py, line: 91
+# File: usr/share/big-game-config/ui/window.py, line: 469
+# File: usr/share/big-game-config/ui/window.py, line: 470
+# File: usr/share/big-game-config/core/packages.py, line: 106
 msgid   "Emulators"
 msgstr  ""
 
@@ -155,8 +155,8 @@ msgstr  ""
 # File: usr/share/big-game-config/ui/window.py, line: 83
 # File: usr/share/big-game-config/ui/window.py, line: 179
 # File: usr/share/big-game-config/ui/window.py, line: 180
-# File: usr/share/big-game-config/ui/window.py, line: 483
-# File: usr/share/big-game-config/ui/window.py, line: 484
+# File: usr/share/big-game-config/ui/window.py, line: 472
+# File: usr/share/big-game-config/ui/window.py, line: 473
 msgid   "Tools"
 msgstr  ""
 
@@ -164,8 +164,8 @@ msgstr  ""
 # File: usr/share/big-game-config/ui/window.py, line: 84
 # File: usr/share/big-game-config/ui/window.py, line: 183
 # File: usr/share/big-game-config/ui/window.py, line: 184
-# File: usr/share/big-game-config/ui/window.py, line: 486
-# File: usr/share/big-game-config/ui/window.py, line: 487
+# File: usr/share/big-game-config/ui/window.py, line: 475
+# File: usr/share/big-game-config/ui/window.py, line: 476
 msgid   "Hardware"
 msgstr  ""
 
@@ -250,16 +250,26 @@ msgid   "Interface to monitor and overclock NVIDIA graphics cards."
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/core/packages.py, line: 94
-msgid   "Frontend for emulators, allowing games from various consoles."
+# File: usr/share/big-game-config/core/packages.py, line: 93
+msgid   "Interface to map gamepad buttons."
 msgstr  ""
 
 #
 # File: usr/share/big-game-config/core/packages.py, line: 100
+msgid   "Interface to create macros and map mouse buttons."
+msgstr  ""
+
+#
+# File: usr/share/big-game-config/core/packages.py, line: 109
+msgid   "Frontend for emulators, allowing games from various consoles."
+msgstr  ""
+
+#
+# File: usr/share/big-game-config/core/packages.py, line: 115
 msgid   "PlayStation 2 emulator."
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/core/packages.py, line: 106
+# File: usr/share/big-game-config/core/packages.py, line: 121
 msgid   "PlayStation 3 emulator."
 msgstr  ""

@@ -233,6 +233,16 @@ msgstr "Інструмент для моніторингу та керуванн
 msgid "Interface to monitor and overclock NVIDIA graphics cards."
 msgstr "Інтерфейс для моніторингу та розгону графічних карт NVIDIA."
 # 
+# File: usr/share/big-game-config/core/packages.py, line: 93
+#: NEEDS WORK
+msgid "Interface to map gamepad buttons."
+msgstr "Інтерфейс для налаштування кнопок геймпада."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 100
+#: NEEDS WORK
+msgid "Interface to create macros and map mouse buttons."
+msgstr "Інтерфейс для створення макросів та налаштування кнопок миші."
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 87
 #: NEEDS WORK
 msgid "Frontend for emulators, allowing games from various consoles."

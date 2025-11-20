@@ -233,6 +233,16 @@ msgstr "Εργαλείο για την παρακολούθηση και τον 
 msgid "Interface to monitor and overclock NVIDIA graphics cards."
 msgstr "Διεπαφή για την παρακολούθηση και την υπερχρονισμό καρτών γραφικών NVIDIA."
 # 
+# File: usr/share/big-game-config/core/packages.py, line: 93
+#: NEEDS WORK
+msgid "Interface to map gamepad buttons."
+msgstr "Διεπαφή για την αντιστοίχιση κουμπιών gamepad."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 100
+#: NEEDS WORK
+msgid "Interface to create macros and map mouse buttons."
+msgstr "Διεπαφή για τη δημιουργία μακροεντολών και την αντιστοίχιση κουμπιών ποντικιού."
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 87
 #: NEEDS WORK
 msgid "Frontend for emulators, allowing games from various consoles."

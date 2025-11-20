@@ -233,6 +233,16 @@ msgstr "כלי לניהול ומעקב אחר כרטיסי גרפיקה של AMD
 msgid "Interface to monitor and overclock NVIDIA graphics cards."
 msgstr "ממשק לניהול והאצת כרטיסי גרפיקה של NVIDIA."
 # 
+# File: usr/share/big-game-config/core/packages.py, line: 93
+#: NEEDS WORK
+msgid "Interface to map gamepad buttons."
+msgstr "ממשק למיפוי כפתורי גיימפד."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 100
+#: NEEDS WORK
+msgid "Interface to create macros and map mouse buttons."
+msgstr "ממשק ליצירת מקרואים ומיפוי כפתורי עכבר."
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 87
 #: NEEDS WORK
 msgid "Frontend for emulators, allowing games from various consoles."
