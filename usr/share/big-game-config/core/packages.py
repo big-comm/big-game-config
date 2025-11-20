@@ -87,6 +87,21 @@ def get_packages_by_category():
                 "package_name": "gwe",
                 "icon": "gwe"
             },
+
+            {
+                "name": "AntiMicroX",
+                "description": _("Interface to map gamepad buttons."),
+                "package_name": "antimicrox",
+                "icon": "antimicrox"
+            },
+
+            {
+                "name": "Input Remapper",
+                "description": _("Interface to create macros and map mouse buttons."),
+                "package_name": "input-remapper-bin",
+                "icon": "input-remapper"
+            },
+
         ],
         ("input-gaming-symbolic", _("Emulators")): [
             {
