@@ -118,20 +118,46 @@ msgstr "Kaldır"
 msgid "Install"
 msgstr "Kurulum"
 # 
+# File: usr/share/big-game-config/ui/window.py, line: 64
+#: NEEDS WORK
+msgid "Navigation"
+msgstr "Navigasyon"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 81
+# File: usr/share/big-game-config/ui/window.py, line: 172
+# File: usr/share/big-game-config/ui/window.py, line: 204
+# File: usr/share/big-game-config/ui/window.py, line: 478
+#: NEEDS WORK
+msgid "Launchers"
+msgstr "Başlatıcılar"
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 84
+#: NEEDS WORK
+msgid "Emulators"
+msgstr "Emülatörler"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 83
+# File: usr/share/big-game-config/ui/window.py, line: 179
+# File: usr/share/big-game-config/ui/window.py, line: 180
+# File: usr/share/big-game-config/ui/window.py, line: 483
+# File: usr/share/big-game-config/ui/window.py, line: 484
+#: NEEDS WORK
+msgid "Tools"
+msgstr "Araçlar"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 84
+# File: usr/share/big-game-config/ui/window.py, line: 183
+# File: usr/share/big-game-config/ui/window.py, line: 184
+# File: usr/share/big-game-config/ui/window.py, line: 486
+# File: usr/share/big-game-config/ui/window.py, line: 487
+#: NEEDS WORK
+msgid "Hardware"
+msgstr "Donanım"
+# 
 # File: usr/share/big-game-config/ui/window.py, line: 49
 #: NEEDS WORK
 msgid "Search packages..."
 msgstr "Paketleri ara..."
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 57
-#: NEEDS WORK
-msgid "Refresh package status"
-msgstr "Paket durumunu yenile"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 64
-#: NEEDS WORK
-msgid "Menu"
-msgstr "Menü"
 # 
 # File: usr/share/big-game-config/ui/window.py, line: 68
 #: NEEDS WORK
@@ -142,26 +168,6 @@ msgstr "Hakkında"
 #: NEEDS WORK
 msgid "Quit"
 msgstr "Çıkış"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 129
-#: NEEDS WORK
-msgid "No packages found"
-msgstr "Paket bulunamadı"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 130
-#: NEEDS WORK
-msgid "Try adjusting your search"
-msgstr "Aramanızı ayarlamayı deneyin"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 179
-#: NEEDS WORK
-msgid "Package status updated"
-msgstr "Paket durumu güncellendi"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 227
-#: NEEDS WORK
-msgid "Operation completed"
-msgstr "İşlem tamamlandı"
 # 
 # File: usr/share/big-game-config/core/packages.py, line: 18
 #: NEEDS WORK
@@ -208,9 +214,9 @@ msgstr "MangoHud ile kullanılan Vulkan katman enjeksiyonu aracı."
 msgid "Manager for custom Proton versions (Proton-GE)."
 msgstr "Özel Proton sürümleri yöneticisi (Proton-GE)."
 # 
-# File: usr/share/big-game-config/core/packages.py, line: 64
+# File: usr/share/big-game-config/core/packages.py, line: 71
 #: NEEDS WORK
-msgid "Hardware & Overclock"
+msgid "Hardware and Overclock"
 msgstr "Donanım ve Aşırı Hızlandırma"
 # 
 # File: usr/share/big-game-config/core/packages.py, line: 67
@@ -227,11 +233,6 @@ msgstr "AMD GPU'larını izlemek ve kontrol etmek için araç."
 #: NEEDS WORK
 msgid "Interface to monitor and overclock NVIDIA graphics cards."
 msgstr "NVIDIA grafik kartlarını izlemek ve hız aşırtmak için arayüz."
-# 
-# File: usr/share/big-game-config/core/packages.py, line: 84
-#: NEEDS WORK
-msgid "Emulators"
-msgstr "Emülatörler"
 # 
 # File: usr/share/big-game-config/core/packages.py, line: 87
 #: NEEDS WORK

@@ -18,7 +18,8 @@ msgstr  "Project-Id-Version: big-game-config\n"
 # #-#-#-#-#  big-game-config.pot (big-game-config)  #-#-#-#-#
 #
 # File: usr/share/big-game-config/main.py, line: 37
-# File: usr/share/big-game-config/ui/window.py, line: 30
+# File: usr/share/big-game-config/ui/window.py, line: 31
+# File: usr/share/big-game-config/ui/window.py, line: 125
 msgid   "BigLinux Game Config"
 msgstr  ""
 
@@ -108,58 +109,79 @@ msgid   "Not installed"
 msgstr  ""
 
 #
+# #-#-#-#-#  big-game-config.pot (big-game-config)  #-#-#-#-#
+#
 # File: usr/share/big-game-config/ui/package_card.py, line: 178
+# File: usr/share/big-game-config/ui/window.py, line: 327
+# File: usr/share/big-game-config/ui/window.py, line: 366
 msgid   "Remove"
 msgstr  ""
 
 #
+# #-#-#-#-#  big-game-config.pot (big-game-config)  #-#-#-#-#
+#
 # File: usr/share/big-game-config/ui/package_card.py, line: 182
+# File: usr/share/big-game-config/ui/window.py, line: 327
+# File: usr/share/big-game-config/ui/window.py, line: 366
 msgid   "Install"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/window.py, line: 85
+# File: usr/share/big-game-config/ui/window.py, line: 64
+msgid   "Navigation"
+msgstr  ""
+
+#
+# File: usr/share/big-game-config/ui/window.py, line: 81
+# File: usr/share/big-game-config/ui/window.py, line: 172
+# File: usr/share/big-game-config/ui/window.py, line: 204
+# File: usr/share/big-game-config/ui/window.py, line: 478
+msgid   "Launchers"
+msgstr  ""
+
+#
+# #-#-#-#-#  big-game-config.pot (big-game-config)  #-#-#-#-#
+#
+# File: usr/share/big-game-config/ui/window.py, line: 82
+# File: usr/share/big-game-config/ui/window.py, line: 175
+# File: usr/share/big-game-config/ui/window.py, line: 176
+# File: usr/share/big-game-config/ui/window.py, line: 480
+# File: usr/share/big-game-config/ui/window.py, line: 481
+# File: usr/share/big-game-config/core/packages.py, line: 91
+msgid   "Emulators"
+msgstr  ""
+
+#
+# File: usr/share/big-game-config/ui/window.py, line: 83
+# File: usr/share/big-game-config/ui/window.py, line: 179
+# File: usr/share/big-game-config/ui/window.py, line: 180
+# File: usr/share/big-game-config/ui/window.py, line: 483
+# File: usr/share/big-game-config/ui/window.py, line: 484
+msgid   "Tools"
+msgstr  ""
+
+#
+# File: usr/share/big-game-config/ui/window.py, line: 84
+# File: usr/share/big-game-config/ui/window.py, line: 183
+# File: usr/share/big-game-config/ui/window.py, line: 184
+# File: usr/share/big-game-config/ui/window.py, line: 486
+# File: usr/share/big-game-config/ui/window.py, line: 487
+msgid   "Hardware"
+msgstr  ""
+
+#
+# File: usr/share/big-game-config/ui/window.py, line: 135
 msgid   "Search packages..."
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/window.py, line: 93
-msgid   "Refresh package status"
-msgstr  ""
-
-#
-# File: usr/share/big-game-config/ui/window.py, line: 100
-msgid   "Menu"
-msgstr  ""
-
-#
-# File: usr/share/big-game-config/ui/window.py, line: 104
+# File: usr/share/big-game-config/ui/window.py, line: 145
 msgid   "About"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/window.py, line: 105
+# File: usr/share/big-game-config/ui/window.py, line: 146
 msgid   "Quit"
-msgstr  ""
-
-#
-# File: usr/share/big-game-config/ui/window.py, line: 165
-msgid   "No packages found"
-msgstr  ""
-
-#
-# File: usr/share/big-game-config/ui/window.py, line: 166
-msgid   "Try adjusting your search"
-msgstr  ""
-
-#
-# File: usr/share/big-game-config/ui/window.py, line: 215
-msgid   "Package status updated"
-msgstr  ""
-
-#
-# File: usr/share/big-game-config/ui/window.py, line: 263
-msgid   "Operation completed"
 msgstr  ""
 
 #
@@ -183,66 +205,61 @@ msgid   "Allows logging into multiple Steam accounts simultaneously."
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/core/packages.py, line: 38
+# File: usr/share/big-game-config/core/packages.py, line: 45
 msgid   "Performance Tools"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/core/packages.py, line: 41
+# File: usr/share/big-game-config/core/packages.py, line: 48
 msgid   "Displays a HUD to monitor FPS, temperatures and hardware usage."
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/core/packages.py, line: 47
+# File: usr/share/big-game-config/core/packages.py, line: 54
 msgid   "Graphical interface to manage and configure MangoHud."
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/core/packages.py, line: 53
+# File: usr/share/big-game-config/core/packages.py, line: 60
 msgid   "Tool for Vulkan layer injection, used with MangoHud."
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/core/packages.py, line: 59
+# File: usr/share/big-game-config/core/packages.py, line: 66
 msgid   "Manager for custom Proton versions (Proton-GE)."
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/core/packages.py, line: 64
-msgid   "Hardware & Overclock"
+# File: usr/share/big-game-config/core/packages.py, line: 71
+msgid   "Hardware and Overclock"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/core/packages.py, line: 67
+# File: usr/share/big-game-config/core/packages.py, line: 74
 msgid   "Software for controlling AMD graphics card hardware."
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/core/packages.py, line: 73
+# File: usr/share/big-game-config/core/packages.py, line: 80
 msgid   "Tool to monitor and control AMD GPUs."
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/core/packages.py, line: 79
+# File: usr/share/big-game-config/core/packages.py, line: 86
 msgid   "Interface to monitor and overclock NVIDIA graphics cards."
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/core/packages.py, line: 84
-msgid   "Emulators"
-msgstr  ""
-
-#
-# File: usr/share/big-game-config/core/packages.py, line: 87
+# File: usr/share/big-game-config/core/packages.py, line: 94
 msgid   "Frontend for emulators, allowing games from various consoles."
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/core/packages.py, line: 93
+# File: usr/share/big-game-config/core/packages.py, line: 100
 msgid   "PlayStation 2 emulator."
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/core/packages.py, line: 99
+# File: usr/share/big-game-config/core/packages.py, line: 106
 msgid   "PlayStation 3 emulator."
 msgstr  ""

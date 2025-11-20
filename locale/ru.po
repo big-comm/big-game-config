@@ -117,20 +117,46 @@ msgstr "Удалить"
 msgid "Install"
 msgstr "Установить"
 # 
+# File: usr/share/big-game-config/ui/window.py, line: 64
+#: NEEDS WORK
+msgid "Navigation"
+msgstr "Навигация"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 81
+# File: usr/share/big-game-config/ui/window.py, line: 172
+# File: usr/share/big-game-config/ui/window.py, line: 204
+# File: usr/share/big-game-config/ui/window.py, line: 478
+#: NEEDS WORK
+msgid "Launchers"
+msgstr "Запускатели"
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 84
+#: NEEDS WORK
+msgid "Emulators"
+msgstr "Эмуляторы"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 83
+# File: usr/share/big-game-config/ui/window.py, line: 179
+# File: usr/share/big-game-config/ui/window.py, line: 180
+# File: usr/share/big-game-config/ui/window.py, line: 483
+# File: usr/share/big-game-config/ui/window.py, line: 484
+#: NEEDS WORK
+msgid "Tools"
+msgstr "Инструменты"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 84
+# File: usr/share/big-game-config/ui/window.py, line: 183
+# File: usr/share/big-game-config/ui/window.py, line: 184
+# File: usr/share/big-game-config/ui/window.py, line: 486
+# File: usr/share/big-game-config/ui/window.py, line: 487
+#: NEEDS WORK
+msgid "Hardware"
+msgstr "Аппаратное обеспечение"
+# 
 # File: usr/share/big-game-config/ui/window.py, line: 49
 #: NEEDS WORK
 msgid "Search packages..."
 msgstr "Поиск пакетов..."
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 57
-#: NEEDS WORK
-msgid "Refresh package status"
-msgstr "Обновить статус пакета"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 64
-#: NEEDS WORK
-msgid "Menu"
-msgstr "Меню"
 # 
 # File: usr/share/big-game-config/ui/window.py, line: 68
 #: NEEDS WORK
@@ -141,26 +167,6 @@ msgstr "О программе"
 #: NEEDS WORK
 msgid "Quit"
 msgstr "Выйти"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 129
-#: NEEDS WORK
-msgid "No packages found"
-msgstr "Пакеты не найдены"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 130
-#: NEEDS WORK
-msgid "Try adjusting your search"
-msgstr "Попробуйте изменить ваш поиск"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 179
-#: NEEDS WORK
-msgid "Package status updated"
-msgstr "Статус пакета обновлён"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 227
-#: NEEDS WORK
-msgid "Operation completed"
-msgstr "Операция завершена"
 # 
 # File: usr/share/big-game-config/core/packages.py, line: 18
 #: NEEDS WORK
@@ -207,9 +213,9 @@ msgstr "Инструмент для инъекции Vulkan-слоев, испо
 msgid "Manager for custom Proton versions (Proton-GE)."
 msgstr "Менеджер для пользовательских версий Proton (Proton-GE)."
 # 
-# File: usr/share/big-game-config/core/packages.py, line: 64
+# File: usr/share/big-game-config/core/packages.py, line: 71
 #: NEEDS WORK
-msgid "Hardware & Overclock"
+msgid "Hardware and Overclock"
 msgstr "Аппаратное обеспечение и разгон"
 # 
 # File: usr/share/big-game-config/core/packages.py, line: 67
@@ -226,11 +232,6 @@ msgstr "Инструмент для мониторинга и управлени
 #: NEEDS WORK
 msgid "Interface to monitor and overclock NVIDIA graphics cards."
 msgstr "Интерфейс для мониторинга и разгона графических карт NVIDIA."
-# 
-# File: usr/share/big-game-config/core/packages.py, line: 84
-#: NEEDS WORK
-msgid "Emulators"
-msgstr "Эмуляторы"
 # 
 # File: usr/share/big-game-config/core/packages.py, line: 87
 #: NEEDS WORK

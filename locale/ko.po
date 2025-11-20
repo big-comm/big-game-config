@@ -117,20 +117,46 @@ msgstr "제거"
 msgid "Install"
 msgstr "설치"
 # 
+# File: usr/share/big-game-config/ui/window.py, line: 64
+#: NEEDS WORK
+msgid "Navigation"
+msgstr "탐색"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 81
+# File: usr/share/big-game-config/ui/window.py, line: 172
+# File: usr/share/big-game-config/ui/window.py, line: 204
+# File: usr/share/big-game-config/ui/window.py, line: 478
+#: NEEDS WORK
+msgid "Launchers"
+msgstr "런처"
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 84
+#: NEEDS WORK
+msgid "Emulators"
+msgstr "에뮬레이터"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 83
+# File: usr/share/big-game-config/ui/window.py, line: 179
+# File: usr/share/big-game-config/ui/window.py, line: 180
+# File: usr/share/big-game-config/ui/window.py, line: 483
+# File: usr/share/big-game-config/ui/window.py, line: 484
+#: NEEDS WORK
+msgid "Tools"
+msgstr "도구"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 84
+# File: usr/share/big-game-config/ui/window.py, line: 183
+# File: usr/share/big-game-config/ui/window.py, line: 184
+# File: usr/share/big-game-config/ui/window.py, line: 486
+# File: usr/share/big-game-config/ui/window.py, line: 487
+#: NEEDS WORK
+msgid "Hardware"
+msgstr "하드웨어"
+# 
 # File: usr/share/big-game-config/ui/window.py, line: 49
 #: NEEDS WORK
 msgid "Search packages..."
 msgstr "패키지 검색..."
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 57
-#: NEEDS WORK
-msgid "Refresh package status"
-msgstr "패키지 상태 새로 고침"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 64
-#: NEEDS WORK
-msgid "Menu"
-msgstr "메뉴"
 # 
 # File: usr/share/big-game-config/ui/window.py, line: 68
 #: NEEDS WORK
@@ -141,26 +167,6 @@ msgstr "정보"
 #: NEEDS WORK
 msgid "Quit"
 msgstr "종료"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 129
-#: NEEDS WORK
-msgid "No packages found"
-msgstr "패키지를 찾을 수 없습니다."
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 130
-#: NEEDS WORK
-msgid "Try adjusting your search"
-msgstr "검색을 조정해 보세요"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 179
-#: NEEDS WORK
-msgid "Package status updated"
-msgstr "패키지 상태가 업데이트되었습니다."
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 227
-#: NEEDS WORK
-msgid "Operation completed"
-msgstr "작업 완료"
 # 
 # File: usr/share/big-game-config/core/packages.py, line: 18
 #: NEEDS WORK
@@ -207,9 +213,9 @@ msgstr "MangoHud와 함께 사용되는 Vulkan 레이어 주입 도구."
 msgid "Manager for custom Proton versions (Proton-GE)."
 msgstr "사용자 정의 Proton 버전 관리기 (Proton-GE)."
 # 
-# File: usr/share/big-game-config/core/packages.py, line: 64
+# File: usr/share/big-game-config/core/packages.py, line: 71
 #: NEEDS WORK
-msgid "Hardware & Overclock"
+msgid "Hardware and Overclock"
 msgstr "하드웨어 및 오버클럭"
 # 
 # File: usr/share/big-game-config/core/packages.py, line: 67
@@ -226,11 +232,6 @@ msgstr "AMD GPU를 모니터링하고 제어하는 도구."
 #: NEEDS WORK
 msgid "Interface to monitor and overclock NVIDIA graphics cards."
 msgstr "NVIDIA 그래픽 카드를 모니터링하고 오버클럭하는 인터페이스."
-# 
-# File: usr/share/big-game-config/core/packages.py, line: 84
-#: NEEDS WORK
-msgid "Emulators"
-msgstr "에뮬레이터"
 # 
 # File: usr/share/big-game-config/core/packages.py, line: 87
 #: NEEDS WORK

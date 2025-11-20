@@ -117,20 +117,46 @@ msgstr "Poista"
 msgid "Install"
 msgstr "Asenna"
 # 
+# File: usr/share/big-game-config/ui/window.py, line: 64
+#: NEEDS WORK
+msgid "Navigation"
+msgstr "Navigointi"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 81
+# File: usr/share/big-game-config/ui/window.py, line: 172
+# File: usr/share/big-game-config/ui/window.py, line: 204
+# File: usr/share/big-game-config/ui/window.py, line: 478
+#: NEEDS WORK
+msgid "Launchers"
+msgstr "Käynnistimet"
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 84
+#: NEEDS WORK
+msgid "Emulators"
+msgstr "Emulaattorit"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 83
+# File: usr/share/big-game-config/ui/window.py, line: 179
+# File: usr/share/big-game-config/ui/window.py, line: 180
+# File: usr/share/big-game-config/ui/window.py, line: 483
+# File: usr/share/big-game-config/ui/window.py, line: 484
+#: NEEDS WORK
+msgid "Tools"
+msgstr "Työkalut"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 84
+# File: usr/share/big-game-config/ui/window.py, line: 183
+# File: usr/share/big-game-config/ui/window.py, line: 184
+# File: usr/share/big-game-config/ui/window.py, line: 486
+# File: usr/share/big-game-config/ui/window.py, line: 487
+#: NEEDS WORK
+msgid "Hardware"
+msgstr "Laitteisto"
+# 
 # File: usr/share/big-game-config/ui/window.py, line: 49
 #: NEEDS WORK
 msgid "Search packages..."
 msgstr "Etsi paketteja..."
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 57
-#: NEEDS WORK
-msgid "Refresh package status"
-msgstr "Päivitä paketin tila"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 64
-#: NEEDS WORK
-msgid "Menu"
-msgstr "Valikko"
 # 
 # File: usr/share/big-game-config/ui/window.py, line: 68
 #: NEEDS WORK
@@ -141,26 +167,6 @@ msgstr "Tietoja"
 #: NEEDS WORK
 msgid "Quit"
 msgstr "Lopeta"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 129
-#: NEEDS WORK
-msgid "No packages found"
-msgstr "Ei paketteja löytynyt"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 130
-#: NEEDS WORK
-msgid "Try adjusting your search"
-msgstr "Kokeile säätää hakuaasi"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 179
-#: NEEDS WORK
-msgid "Package status updated"
-msgstr "Paketin tila päivitetty"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 227
-#: NEEDS WORK
-msgid "Operation completed"
-msgstr "Toiminto suoritettu"
 # 
 # File: usr/share/big-game-config/core/packages.py, line: 18
 #: NEEDS WORK
@@ -207,10 +213,10 @@ msgstr "Työkalu Vulkan-kerroksen injektoimiseen, käytetään yhdessä MangoHud
 msgid "Manager for custom Proton versions (Proton-GE)."
 msgstr "Mukautettujen Proton-versioiden hallinta (Proton-GE)."
 # 
-# File: usr/share/big-game-config/core/packages.py, line: 64
+# File: usr/share/big-game-config/core/packages.py, line: 71
 #: NEEDS WORK
-msgid "Hardware & Overclock"
-msgstr "Laitteisto ja ylikellotus"
+msgid "Hardware and Overclock"
+msgstr "Laitteisto ja Ylikellotus"
 # 
 # File: usr/share/big-game-config/core/packages.py, line: 67
 #: NEEDS WORK
@@ -226,11 +232,6 @@ msgstr "Työkalu AMD GPU:iden valvontaan ja hallintaan."
 #: NEEDS WORK
 msgid "Interface to monitor and overclock NVIDIA graphics cards."
 msgstr "Rajapinta NVIDIA-näytönohjainten valvontaan ja ylikellotukseen."
-# 
-# File: usr/share/big-game-config/core/packages.py, line: 84
-#: NEEDS WORK
-msgid "Emulators"
-msgstr "Emulaattorit"
 # 
 # File: usr/share/big-game-config/core/packages.py, line: 87
 #: NEEDS WORK
