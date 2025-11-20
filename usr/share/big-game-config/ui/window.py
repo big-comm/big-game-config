@@ -188,10 +188,6 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
 
     def _create_launchers_view(self):
         """Create launchers view with cards."""
-        # Scrolled window
-        scrolled = Gtk.ScrolledWindow()
-        scrolled.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
-
         # Content box
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
         box.set_margin_top(30)
@@ -205,11 +201,15 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
         title.set_halign(Gtk.Align.START)
         box.append(title)
 
-        # Grid for cards
-        grid = Gtk.Grid()
-        grid.set_row_spacing(20)
-        grid.set_column_spacing(20)
-        grid.set_column_homogeneous(True)
+        # FlowBox for cards (maintains size when children are hidden)
+        flowbox = Gtk.FlowBox()
+        flowbox.set_valign(Gtk.Align.START)
+        flowbox.set_max_children_per_line(2)
+        flowbox.set_min_children_per_line(2)
+        flowbox.set_row_spacing(20)
+        flowbox.set_column_spacing(20)
+        flowbox.set_homogeneous(True)
+        flowbox.set_selection_mode(Gtk.SelectionMode.NONE)
 
         # Get launcher packages
         packages_by_category = get_packages_by_category()
@@ -220,26 +220,16 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
                 break
 
         # Add cards
-        row, col = 0, 0
         for package in launchers:
             card = self._create_large_card(package)
-            grid.attach(card, col, row, 1, 1)
-            col += 1
-            if col >= 2:
-                col = 0
-                row += 1
+            flowbox.append(card)
 
-        box.append(grid)
-        scrolled.set_child(box)
+        box.append(flowbox)
 
-        return scrolled
+        return box
 
     def _create_list_view(self, tag, title, category_filter):
-        """Create list view with AdwActionRow."""
-        # Scrolled window
-        scrolled = Gtk.ScrolledWindow()
-        scrolled.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
-
+        """Create list view with large cards in grid layout."""
         # Content box
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
         box.set_margin_top(30)
@@ -258,26 +248,38 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
 
         for cat_key, packages in packages_by_category.items():
             if category_filter in cat_key[1]:
-                # Category group
-                group = Adw.PreferencesGroup()
-                group.set_title(cat_key[1])
-                group.set_margin_top(10)
+                # Category title
+                category_title = Gtk.Label()
+                category_title.set_markup(f"<span size='large' weight='bold'>{cat_key[1]}</span>")
+                category_title.set_halign(Gtk.Align.START)
+                category_title.set_margin_top(20)
+                box.append(category_title)
 
+                # FlowBox for cards (maintains size when children are hidden)
+                flowbox = Gtk.FlowBox()
+                flowbox.set_valign(Gtk.Align.START)
+                flowbox.set_max_children_per_line(2)
+                flowbox.set_min_children_per_line(2)
+                flowbox.set_row_spacing(20)
+                flowbox.set_column_spacing(20)
+                flowbox.set_homogeneous(True)
+                flowbox.set_selection_mode(Gtk.SelectionMode.NONE)
+                flowbox.set_margin_top(10)
+
+                # Add cards
                 for package in packages:
-                    row = self._create_package_row(package)
-                    group.add(row)
+                    card = self._create_large_card(package)
+                    flowbox.append(card)
 
-                box.append(group)
+                box.append(flowbox)
 
-        scrolled.set_child(box)
-
-        return scrolled
+        return box
 
     def _create_large_card(self, package):
         """Create large card for launchers."""
-        card = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=16)
+        card = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
         card.add_css_class("card")
-        card.set_size_request(300, 320)
+        card.set_size_request(320, 280)
 
         # Store package info for search
         card.package_name = package['name'].lower()
@@ -285,7 +287,7 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
 
         # Icon
         icon_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
-        icon_box.set_margin_top(30)
+        icon_box.set_margin_top(24)
 
         icon_path = os.path.join(self.base_dir, "icons", f"{package['icon']}.svg")
         if os.path.exists(icon_path):
@@ -302,9 +304,10 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
 
         # Name
         name_label = Gtk.Label()
-        name_label.set_markup(f"<span size='x-large' weight='bold'>{package['name']}</span>")
+        name_label.set_markup(f"<span size='large' weight='bold'>{package['name']}</span>")
         name_label.set_wrap(True)
         name_label.set_justify(Gtk.Justification.CENTER)
+        name_label.set_margin_top(4)
         card.append(name_label)
 
         # Description
@@ -313,8 +316,8 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
         desc_label.set_justify(Gtk.Justification.CENTER)
         desc_label.set_max_width_chars(35)
         desc_label.add_css_class("dim-label")
-        desc_label.set_margin_start(20)
-        desc_label.set_margin_end(20)
+        desc_label.set_margin_start(16)
+        desc_label.set_margin_end(16)
         card.append(desc_label)
 
         # Spacer
@@ -333,7 +336,7 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
 
         button.set_halign(Gtk.Align.CENTER)
         button.set_size_request(140, -1)
-        button.set_margin_bottom(20)
+        button.set_margin_bottom(16)
         button.connect("clicked", self._on_package_action, package['package_name'])
         card.append(button)
 
@@ -381,72 +384,58 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
         """Handle search text changes."""
         search_text = search_entry.get_text().lower().strip()
 
-        # Get current visible view
-        visible_view = self.view_stack.get_visible_child()
-        if not visible_view:
-            return
-
-        # Get the scrolled window and its child (the content box)
-        content_box = visible_view.get_child()
+        # Get current visible view (now it's a Box directly, not a ScrolledWindow)
+        content_box = self.view_stack.get_visible_child()
         if not content_box:
             return
 
-        # For launchers view: search in grid cards
-        if self.current_view == "launchers":
-            self._filter_launchers_view(content_box, search_text)
-        else:
-            # For list views: search in preference groups
-            self._filter_list_view(content_box, search_text)
+        # For all views: search in grid cards (they all use the same layout now)
+        self._filter_cards_view(content_box, search_text)
 
-    def _filter_launchers_view(self, content_box, search_text):
-        """Filter launcher cards based on search text."""
-        # content_box is a Gtk.Box, find the grid inside it
+    def _filter_cards_view(self, content_box, search_text):
+        """Filter cards based on search text."""
+        # content_box is a Gtk.Box, iterate through children to find FlowBoxes
         child = content_box.get_first_child()
-        while child:
-            if isinstance(child, Gtk.Grid):
-                # Iterate through grid children (cards)
-                card = child.get_first_child()
-                while card:
-                    # Check if card matches search
-                    if search_text:
-                        name = getattr(card, 'package_name', '')
-                        desc = getattr(card, 'package_desc', '')
-                        visible = search_text in name or search_text in desc
-                    else:
-                        visible = True
+        category_title = None
 
-                    card.set_visible(visible)
-                    card = card.get_next_sibling()
-                break
-            child = child.get_next_sibling()
-
-    def _filter_list_view(self, content_box, search_text):
-        """Filter list rows based on search text."""
-        # content_box is a Gtk.Box, iterate through PreferencesGroups
-        child = content_box.get_first_child()
         while child:
-            if isinstance(child, Adw.PreferencesGroup):
-                # Check each row in the group
-                has_visible_rows = False
-                row_widget = child.get_first_child()
-                while row_widget:
-                    if isinstance(row_widget, Adw.ActionRow):
-                        # Check if row matches search
-                        if search_text:
-                            name = getattr(row_widget, 'package_name', '')
-                            desc = getattr(row_widget, 'package_desc', '')
+            # Track category titles (for multi-category views)
+            if isinstance(child, Gtk.Label):
+                markup = child.get_label()
+                # Check if this is a category title (has 'large' size in markup)
+                if markup and 'large' in markup and 'xx-large' not in markup:
+                    category_title = child
+
+            # Filter cards in flowboxes
+            elif isinstance(child, Gtk.FlowBox):
+                has_visible_cards = False
+
+                # FlowBox wraps children in FlowBoxChild
+                flowbox_child = child.get_first_child()
+                while flowbox_child:
+                    if isinstance(flowbox_child, Gtk.FlowBoxChild):
+                        # Get the actual card (Box) inside FlowBoxChild
+                        card = flowbox_child.get_child()
+
+                        # Check if card matches search
+                        if search_text and card:
+                            name = getattr(card, 'package_name', '')
+                            desc = getattr(card, 'package_desc', '')
                             visible = search_text in name or search_text in desc
                         else:
                             visible = True
 
-                        row_widget.set_visible(visible)
+                        flowbox_child.set_visible(visible)
                         if visible:
-                            has_visible_rows = True
+                            has_visible_cards = True
 
-                    row_widget = row_widget.get_next_sibling()
+                    flowbox_child = flowbox_child.get_next_sibling()
 
-                # Hide group if no visible rows
-                child.set_visible(has_visible_rows or not search_text)
+                # Hide flowbox and its category title if no visible cards
+                child.set_visible(has_visible_cards or not search_text)
+                if category_title:
+                    category_title.set_visible(has_visible_cards or not search_text)
+                    category_title = None  # Reset for next category
 
             child = child.get_next_sibling()
 
