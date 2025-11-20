@@ -1,5 +1,6 @@
 # CLAUDE.md - AI assistant documentation (local only)
 CLAUDE.md
+.claude
 
 # Example files directory
 Exemplo/
@@ -89,3 +90,6 @@ src/
 *~
 *.bak
 *.orig
+
+# Icon cache files (generated at install time)
+icon-theme.cache

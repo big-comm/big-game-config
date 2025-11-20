@@ -35,7 +35,7 @@ class BigGameConfigApplication(Adw.Application):
         """Show the about dialog."""
         about = Adw.AboutDialog(
             application_name=_("BigLinux Game Config"),
-            application_icon="org.communitybig.big-game-config",
+            application_icon="big-game-config",
             developer_name="BigLinux Community",
             version="1.0.0",
             developers=[

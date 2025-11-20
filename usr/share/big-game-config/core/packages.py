@@ -34,6 +34,13 @@ def get_packages_by_category():
                 "package_name": "steam-acolyte",
                 "icon": "acolyte"
             },
+            # TODO: Add Lutris icon
+            # {
+            #     "name": "Lutris",
+            #     "description": _("Open-source game manager."),
+            #     "package_name": "lutris",
+            #     "icon": "lutris"
+            # },
         ],
         ("speedometer-symbolic", _("Performance Tools")): [
             {
@@ -61,7 +68,7 @@ def get_packages_by_category():
                 "icon": "protonplus"
             },
         ],
-        ("computer-symbolic", _("Hardware & Overclock")): [
+        ("computer-symbolic", _("Hardware and Overclock")): [
             {
                 "name": "CoreCtrl",
                 "description": _("Software for controlling AMD graphics card hardware."),

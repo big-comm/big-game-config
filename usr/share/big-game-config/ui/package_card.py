@@ -183,8 +183,11 @@ class PackageCard(Gtk.Box):
             button.add_css_class("suggested-action")
             button.connect("clicked", self._on_install_clicked)
 
-        # Make button smaller (30% reduction in padding)
-        button.add_css_class("compact-button")
+        # Don't expand horizontally - keep button compact but visible
+        button.set_hexpand(False)
+        button.set_halign(Gtk.Align.CENTER)
+        # Set minimum width for better visibility (20% larger)
+        button.set_size_request(100, -1)
 
         button.set_margin_start(12)
         button.set_margin_end(12)
