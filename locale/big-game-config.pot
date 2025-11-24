@@ -17,19 +17,19 @@ msgstr  "Project-Id-Version: big-game-config\n"
 #
 # #-#-#-#-#  big-game-config.pot (big-game-config)  #-#-#-#-#
 #
-# File: usr/share/big-game-config/main.py, line: 37
-# File: usr/share/big-game-config/ui/window.py, line: 31
-# File: usr/share/big-game-config/ui/window.py, line: 135
+# File: usr/share/big-game-config/main.py, line: 38
+# File: usr/share/big-game-config/ui/window.py, line: 33
+# File: usr/share/big-game-config/ui/window.py, line: 137
 msgid   "BigLinux Game Config"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/main.py, line: 50
+# File: usr/share/big-game-config/main.py, line: 51
 msgid   "translator-credits"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/main.py, line: 52
+# File: usr/share/big-game-config/main.py, line: 53
 msgid   "Install and manage your gaming applications and tools.\n"
         "Supports game launchers, performance tools, hardware utilities, and "
         "emulators."
@@ -112,8 +112,8 @@ msgstr  ""
 # #-#-#-#-#  big-game-config.pot (big-game-config)  #-#-#-#-#
 #
 # File: usr/share/big-game-config/ui/package_card.py, line: 178
-# File: usr/share/big-game-config/ui/window.py, line: 348
-# File: usr/share/big-game-config/ui/window.py, line: 387
+# File: usr/share/big-game-config/ui/window.py, line: 350
+# File: usr/share/big-game-config/ui/window.py, line: 389
 msgid   "Remove"
 msgstr  ""
 
@@ -121,77 +121,77 @@ msgstr  ""
 # #-#-#-#-#  big-game-config.pot (big-game-config)  #-#-#-#-#
 #
 # File: usr/share/big-game-config/ui/package_card.py, line: 182
-# File: usr/share/big-game-config/ui/window.py, line: 348
-# File: usr/share/big-game-config/ui/window.py, line: 387
+# File: usr/share/big-game-config/ui/window.py, line: 350
+# File: usr/share/big-game-config/ui/window.py, line: 389
 msgid   "Install"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/window.py, line: 65
+# File: usr/share/big-game-config/ui/window.py, line: 67
 msgid   "Navigation"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/window.py, line: 82
-# File: usr/share/big-game-config/ui/window.py, line: 182
-# File: usr/share/big-game-config/ui/window.py, line: 218
-# File: usr/share/big-game-config/ui/window.py, line: 507
+# File: usr/share/big-game-config/ui/window.py, line: 84
+# File: usr/share/big-game-config/ui/window.py, line: 184
+# File: usr/share/big-game-config/ui/window.py, line: 220
+# File: usr/share/big-game-config/ui/window.py, line: 509
 msgid   "Launchers"
 msgstr  ""
 
 #
 # #-#-#-#-#  big-game-config.pot (big-game-config)  #-#-#-#-#
 #
-# File: usr/share/big-game-config/ui/window.py, line: 83
-# File: usr/share/big-game-config/ui/window.py, line: 185
-# File: usr/share/big-game-config/ui/window.py, line: 186
-# File: usr/share/big-game-config/ui/window.py, line: 509
-# File: usr/share/big-game-config/ui/window.py, line: 510
+# File: usr/share/big-game-config/ui/window.py, line: 85
+# File: usr/share/big-game-config/ui/window.py, line: 187
+# File: usr/share/big-game-config/ui/window.py, line: 188
+# File: usr/share/big-game-config/ui/window.py, line: 511
+# File: usr/share/big-game-config/ui/window.py, line: 512
 # File: usr/share/big-game-config/core/packages.py, line: 106
 msgid   "Emulators"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/window.py, line: 84
-# File: usr/share/big-game-config/ui/window.py, line: 189
-# File: usr/share/big-game-config/ui/window.py, line: 190
-# File: usr/share/big-game-config/ui/window.py, line: 512
-# File: usr/share/big-game-config/ui/window.py, line: 513
+# File: usr/share/big-game-config/ui/window.py, line: 86
+# File: usr/share/big-game-config/ui/window.py, line: 191
+# File: usr/share/big-game-config/ui/window.py, line: 192
+# File: usr/share/big-game-config/ui/window.py, line: 514
+# File: usr/share/big-game-config/ui/window.py, line: 515
 msgid   "Tools"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/window.py, line: 85
-# File: usr/share/big-game-config/ui/window.py, line: 193
-# File: usr/share/big-game-config/ui/window.py, line: 194
-# File: usr/share/big-game-config/ui/window.py, line: 515
-# File: usr/share/big-game-config/ui/window.py, line: 516
+# File: usr/share/big-game-config/ui/window.py, line: 87
+# File: usr/share/big-game-config/ui/window.py, line: 195
+# File: usr/share/big-game-config/ui/window.py, line: 196
+# File: usr/share/big-game-config/ui/window.py, line: 517
+# File: usr/share/big-game-config/ui/window.py, line: 518
 msgid   "Hardware"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/window.py, line: 145
+# File: usr/share/big-game-config/ui/window.py, line: 147
 msgid   "Search packages..."
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/window.py, line: 155
+# File: usr/share/big-game-config/ui/window.py, line: 157
 msgid   "About"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/window.py, line: 156
+# File: usr/share/big-game-config/ui/window.py, line: 158
 msgid   "Quit"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/window.py, line: 202
-# File: usr/share/big-game-config/ui/window.py, line: 419
+# File: usr/share/big-game-config/ui/window.py, line: 204
+# File: usr/share/big-game-config/ui/window.py, line: 421
 msgid   "Search Results"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/window.py, line: 472
+# File: usr/share/big-game-config/ui/window.py, line: 474
 msgid   "No packages found."
 msgstr  ""
 
