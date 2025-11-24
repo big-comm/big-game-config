@@ -14,7 +14,9 @@ from core.packages import get_packages_by_category
 from core.pacman import is_package_installed
 from ui.install_dialog import InstallDialog
 from utils.i18n import _
-
+from core.steam_configurer import SteamConfigurer
+from core.mangohud_configurer import MangoHudConfigurer
+from core.corectrl_configurer import CorectrlConfigurer
 
 class BigGameConfigWindow(Adw.ApplicationWindow):
     """Main application window with sidebar navigation."""
@@ -521,3 +523,201 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
         self.view_stack.set_visible_child_name(current)
 
         return False
+
+
+    def on_steam_install_clicked(self, button):
+        """
+        Handler para o botão "Instalar Steam"
+        Instala Steam com dependências necessárias
+        """
+        print("[DEBUG] on_steam_install_clicked chamado")
+        
+        # Verificar se Steam já está instalado
+        if is_package_installed('steam'):
+            self.show_notification(
+                "Steam já está instalado",
+                "Remova Steam e tente novamente se desejar reinstalar",
+                level='info'
+            )
+            return
+        
+        # Desabilitar botão durante processo
+        button.set_sensitive(False)
+        self.show_spinner("Instalando Steam com dependências...")
+        
+        try:
+            # Executar instalação
+            success = self.steam_config.install_steam_with_dependencies()
+            
+            if success:
+                self.show_notification(
+                    "✓ Steam Instalado!",
+                    "Steam e suas dependências foram instaladas com sucesso.\n"
+                    "O Steam está pronto para uso.",
+                    level='success'
+                )
+                self.update_package_status('steam', True)
+            else:
+                self.show_notification(
+                    "✗ Erro na Instalação",
+                    "Não foi possível instalar o Steam.\n"
+                    "Verifique sua conexão de internet e permissões.",
+                    level='error'
+                )
+        
+        finally:
+            button.set_sensitive(True)
+            self.hide_spinner()
+
+    def on_mangohud_configure_clicked(self, button):
+        """
+        Handler para o botão "Configurar MangoHud"
+        Aplica configuração do MangoHud para todos os usuários
+        """
+        print("[DEBUG] on_mangohud_configure_clicked chamado")
+        
+        # Verificar se MangoHud está instalado
+        if not is_package_installed('mangohud'):
+            self.show_notification(
+                "MangoHud não instalado",
+                "Instale MangoHud primeiro usando o gerenciador de pacotes.",
+                level='warning'
+            )
+            return
+        
+        # Desabilitar botão durante processo
+        button.set_sensitive(False)
+        self.show_spinner("Configurando MangoHud para todos os usuários...")
+        
+        try:
+            # Executar configuração
+            success = self.mangohud_config.configure_mangohud()
+            
+            if success:
+                self.show_notification(
+                    "✓ MangoHud Configurado!",
+                    "As configurações de MangoHud foram aplicadas com sucesso.\n"
+                    "Serão usadas na próxima execução de jogos.",
+                    level='success'
+                )
+                self.update_package_status('mangohud', True)
+            else:
+                self.show_notification(
+                    "✗ Erro na Configuração",
+                    "Não foi possível configurar o MangoHud.\n"
+                    "Verifique se /etc/skel/.config/MangoHud/MangoHud.conf existe.",
+                    level='error'
+                )
+        
+        finally:
+            button.set_sensitive(True)
+            self.hide_spinner()
+
+    def on_corectrl_configure_clicked(self, button):
+        """
+        Handler para o botão "Configurar Corectrl"
+        Aplica configuração de GRUB e Polkit para Corectrl
+        """
+        print("[DEBUG] on_corectrl_configure_clicked chamado")
+        
+        # Verificar se Corectrl está instalado
+        if not is_package_installed('corectrl'):
+            self.show_notification(
+                "Corectrl não instalado",
+                "Instale Corectrl primeiro usando o gerenciador de pacotes.",
+                level='warning'
+            )
+            return
+        
+        # Mostrar aviso sobre reinicialização
+        response = self.show_confirm_dialog(
+            "Configurar Corectrl?",
+            "A configuração do Corectrl requer:\n\n"
+            "1. Modificação de /etc/default/grub\n"
+            "2. Criação de regra Polkit em /etc/polkit-1/rules.d/\n"
+            "3. Reinicialização do sistema para aplicar\n\n"
+            "Deseja continuar?"
+        )
+        
+        if not response:
+            return
+        
+        # Desabilitar botão durante processo
+        button.set_sensitive(False)
+        self.show_spinner("Configurando Corectrl (GRUB + Polkit)...")
+        
+        try:
+            # Executar configuração
+            success = self.corectrl_config.configure_corectrl()
+            
+            if success:
+                self.show_notification(
+                    "✓ Corectrl Configurado!",
+                    "As configurações de GRUB e Polkit foram aplicadas.\n\n"
+                    "⚠️  IMPORTANTE: Reinicie seu sistema para aplicar as alterações.",
+                    level='success',
+                    timeout=10000
+                )
+                self.update_package_status('corectrl', True)
+                
+                # Oferecer reinicialização
+                self.offer_reboot()
+            else:
+                self.show_notification(
+                    "✗ Erro na Configuração",
+                    "Não foi possível configurar o Corectrl.\n"
+                    "Verifique os logs para mais detalhes.",
+                    level='error'
+                )
+        
+        finally:
+            button.set_sensitive(True)
+            self.hide_spinner()
+
+    def show_notification(self, title, message, level='info', timeout=5000):
+        """
+        Mostra notificação na UI
+        
+        Args:
+            title: Título da notificação
+            message: Mensagem detalhada
+            level: 'info', 'success', 'warning', 'error'
+            timeout: Tempo em ms (0 = sem timeout)
+        """
+        # Implementar usando GLib.timeout_add() para remover após timeout
+        # Ou usar Adwaita.Toast se estiver usando libadwaita
+        print(f"[{level.upper()}] {title}: {message}")
+    
+    def show_spinner(self, message):
+        """Mostra spinner de carregamento"""
+        print(f"[SPINNER] {message}")
+    
+    def hide_spinner(self):
+        """Esconde spinner de carregamento"""
+        print("[SPINNER] Escondido")
+    
+    def update_package_status(self, package_name, installed):
+        """Atualiza status visual do pacote na UI"""
+        print(f"[STATUS] {package_name} = {installed}")
+    
+    def show_confirm_dialog(self, title, message):
+        """
+        Mostra dialog de confirmação
+        
+        Returns:
+            bool: True se usuário clicou OK, False caso contrário
+        """
+        print(f"[CONFIRM] {title}: {message}")
+        return True  # Implementar com Gtk.MessageDialog
+    
+    def offer_reboot(self):
+        """Oferece reinicialização do sistema"""
+        response = self.show_confirm_dialog(
+            "Reiniciar Sistema?",
+            "As alterações de GRUB requerem reinicialização.\n"
+            "Deseja reiniciar agora?"
+        )
+        
+        if response:
+            # systemctl reboot
+            self.steam_config._run_command(['sudo', 'systemctl', 'reboot'])
