@@ -7,8 +7,9 @@ depends=(
 	'gtk4'
 	'libadwaita'
 	'python'
+	'gettext'
 )
-#makedepends=('')
+#makedepends=('gettext')
 #optdepends=('')
 conflicts=('biglinux-game-config')
 #provides=('')
