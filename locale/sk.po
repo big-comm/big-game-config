@@ -1,0 +1,289 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the big-game-config package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: big-game-config\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: attranslate\n"
+# 
+# #-#-#-#-#  big-game-config.pot (big-game-config)  #-#-#-#-#
+# 
+# File: usr/share/big-game-config/main.py, line: 37
+# File: usr/share/big-game-config/ui/window.py, line: 31
+# File: usr/share/big-game-config/ui/window.py, line: 135
+#: NEEDS WORK
+msgid "BigLinux Game Config"
+msgstr "BigLinux Herná Konfigurácia"
+# 
+# File: usr/share/big-game-config/main.py, line: 50
+#: NEEDS WORK
+msgid "translator-credits"
+msgstr "preklady-prekladateľa"
+# 
+# File: usr/share/big-game-config/main.py, line: 52
+#: NEEDS WORK
+msgid ""
+"Install and manage your gaming applications and tools.\n"
+"Supports game launchers, performance tools, hardware utilities, and emulators."
+msgstr ""
+"Nainštalujte a spravujte svoje herné aplikácie a nástroje.  \n"
+"Podporuje spúšťače hier, nástroje na výkon, hardvérové utilitky a emulátory."
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 45
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 70
+#: NEEDS WORK
+msgid "Installing"
+msgstr "Inštalácia"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 45
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 70
+#: NEEDS WORK
+msgid "Removing"
+msgstr "Odstránenie"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 97
+#: NEEDS WORK
+msgid "Installation details"
+msgstr "Podrobnosti inštalácie"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 159
+#: NEEDS WORK
+msgid "Cancel"
+msgstr "Zrušiť"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 163
+#: NEEDS WORK
+msgid "Close"
+msgstr "Zavrieť"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 225
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 233
+#: NEEDS WORK
+msgid "Error"
+msgstr "Chyba"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 267
+#: NEEDS WORK
+msgid "installed"
+msgstr "nainštalovaný"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 267
+#: NEEDS WORK
+msgid "removed"
+msgstr "odstránené"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 268
+#: NEEDS WORK
+msgid "successfully"
+msgstr "úspešne"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 271
+#: NEEDS WORK
+msgid "install"
+msgstr "nainštalovať"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 271
+#: NEEDS WORK
+msgid "remove"
+msgstr "odstrániť"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 272
+#: NEEDS WORK
+msgid "Failed to"
+msgstr "Nepodarilo sa"
+# 
+# File: usr/share/big-game-config/ui/package_card.py, line: 156
+#: NEEDS WORK
+msgid "Installed"
+msgstr "Nainštalované"
+# 
+# File: usr/share/big-game-config/ui/package_card.py, line: 161
+#: NEEDS WORK
+msgid "Not installed"
+msgstr "Nainštalované"
+# 
+# #-#-#-#-#  big-game-config.pot (big-game-config)  #-#-#-#-#
+# 
+# File: usr/share/big-game-config/ui/package_card.py, line: 178
+# File: usr/share/big-game-config/ui/window.py, line: 348
+# File: usr/share/big-game-config/ui/window.py, line: 387
+#: NEEDS WORK
+msgid "Remove"
+msgstr "Odstrániť"
+# 
+# #-#-#-#-#  big-game-config.pot (big-game-config)  #-#-#-#-#
+# 
+# File: usr/share/big-game-config/ui/package_card.py, line: 182
+# File: usr/share/big-game-config/ui/window.py, line: 348
+# File: usr/share/big-game-config/ui/window.py, line: 387
+#: NEEDS WORK
+msgid "Install"
+msgstr "Nainštalovať"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 65
+#: NEEDS WORK
+msgid "Navigation"
+msgstr "Navigácia"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 82
+# File: usr/share/big-game-config/ui/window.py, line: 182
+# File: usr/share/big-game-config/ui/window.py, line: 218
+# File: usr/share/big-game-config/ui/window.py, line: 507
+#: NEEDS WORK
+msgid "Launchers"
+msgstr "Spúšťače"
+# 
+# #-#-#-#-#  big-game-config.pot (big-game-config)  #-#-#-#-#
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 83
+# File: usr/share/big-game-config/ui/window.py, line: 185
+# File: usr/share/big-game-config/ui/window.py, line: 186
+# File: usr/share/big-game-config/ui/window.py, line: 509
+# File: usr/share/big-game-config/ui/window.py, line: 510
+# File: usr/share/big-game-config/core/packages.py, line: 106
+#: NEEDS WORK
+msgid "Emulators"
+msgstr "Emulátory"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 84
+# File: usr/share/big-game-config/ui/window.py, line: 189
+# File: usr/share/big-game-config/ui/window.py, line: 190
+# File: usr/share/big-game-config/ui/window.py, line: 512
+# File: usr/share/big-game-config/ui/window.py, line: 513
+#: NEEDS WORK
+msgid "Tools"
+msgstr "Nástroje"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 85
+# File: usr/share/big-game-config/ui/window.py, line: 193
+# File: usr/share/big-game-config/ui/window.py, line: 194
+# File: usr/share/big-game-config/ui/window.py, line: 515
+# File: usr/share/big-game-config/ui/window.py, line: 516
+#: NEEDS WORK
+msgid "Hardware"
+msgstr "Hardvér"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 145
+#: NEEDS WORK
+msgid "Search packages..."
+msgstr "Hľadať balíky..."
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 155
+#: NEEDS WORK
+msgid "About"
+msgstr "O aplikácii"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 156
+#: NEEDS WORK
+msgid "Quit"
+msgstr "Ukončiť"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 202
+# File: usr/share/big-game-config/ui/window.py, line: 419
+#: NEEDS WORK
+msgid "Search Results"
+msgstr "Výsledky vyhľadávania"
+# 
+# File: usr/share/big-game-config/ui/window.py, line: 472
+#: NEEDS WORK
+msgid "No packages found."
+msgstr "Žiadne balíky nenájdené."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 18
+#: NEEDS WORK
+msgid "Game Launchers"
+msgstr "Herní spouštěče"
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 21
+#: NEEDS WORK
+msgid "Main PC game store and launcher."
+msgstr "Hlavný obchod s počítačovými hrami a spúšťač."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 27
+#: NEEDS WORK
+msgid "Launcher for Epic Games, GOG and Prime Gaming."
+msgstr "Spúšťač pre Epic Games, GOG a Prime Gaming."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 33
+#: NEEDS WORK
+msgid "Allows logging into multiple Steam accounts simultaneously."
+msgstr "Umožňuje súčasné prihlásenie do viacerých účtov Steam."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 45
+#: NEEDS WORK
+msgid "Performance Tools"
+msgstr "Nástroje na výkon"
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 48
+#: NEEDS WORK
+msgid "Displays a HUD to monitor FPS, temperatures and hardware usage."
+msgstr "Zobrazuje HUD na sledovanie FPS, teplôt a využitia hardvéru."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 54
+#: NEEDS WORK
+msgid "Graphical interface to manage and configure MangoHud."
+msgstr "Grafické rozhranie na správu a konfiguráciu MangoHud."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 60
+#: NEEDS WORK
+msgid "Tool for Vulkan layer injection, used with MangoHud."
+msgstr "Nástroj na injekciu Vulkan vrstvy, používaný s MangoHud."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 66
+#: NEEDS WORK
+msgid "Manager for custom Proton versions (Proton-GE)."
+msgstr "Správca pre vlastné verzie Proton (Proton-GE)."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 71
+#: NEEDS WORK
+msgid "Hardware and Overclock"
+msgstr "Hardvér a pretaktovanie"
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 74
+#: NEEDS WORK
+msgid "Software for controlling AMD graphics card hardware."
+msgstr "Softvér na ovládanie hardvéru grafických kariet AMD."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 80
+#: NEEDS WORK
+msgid "Tool to monitor and control AMD GPUs."
+msgstr "Nástroj na monitorovanie a ovládanie GPU AMD."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 86
+#: NEEDS WORK
+msgid "Interface to monitor and overclock NVIDIA graphics cards."
+msgstr "Rozhranie na monitorovanie a pretaktovanie grafických kariet NVIDIA."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 93
+#: NEEDS WORK
+msgid "Interface to map gamepad buttons."
+msgstr "Rozhranie na mapovanie tlačidiel herného ovládača."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 100
+#: NEEDS WORK
+msgid "Interface to create macros and map mouse buttons."
+msgstr "Rozhranie na vytváranie makier a mapovanie tlačidiel myši."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 109
+#: NEEDS WORK
+msgid "Frontend for emulators, allowing games from various consoles."
+msgstr "Frontend pre emulátory, umožňujúci hry z rôznych konzol."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 115
+#: NEEDS WORK
+msgid "PlayStation 2 emulator."
+msgstr "emulátor PlayStation 2."
+# 
+# File: usr/share/big-game-config/core/packages.py, line: 121
+#: NEEDS WORK
+msgid "PlayStation 3 emulator."
+msgstr "emulátor PlayStation 3."
