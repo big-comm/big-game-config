@@ -31,8 +31,9 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
         self.set_title(_("BigLinux Game Config"))
         self.set_default_size(1100, 700)
 
-        # Current view
+        # Current view tracking
         self.current_view = "launchers"
+        self.last_active_view = "launchers" # Armazena a última view real visitada
 
         # Build UI
         self._build_ui()
@@ -111,12 +112,21 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
 
     def _on_nav_activated(self, list_box, row):
         """Handle navigation row activation."""
-        # Get view_id from the row (ActionRow is passed directly, not wrapped in ListBoxRow)
+        # Get view_id from the row
         view_id = getattr(row, 'view_id', None)
 
         if view_id:
+            # Se não estivermos no modo de busca, salvamos onde o usuário clicou
+            # e limpamos a busca se houver texto
             self.current_view = view_id
-            self.view_stack.set_visible_child_name(view_id)
+            self.last_active_view = view_id
+            
+            # Se houver texto na busca e o usuário clicar na sidebar, limpamos a busca
+            if hasattr(self, 'search_entry') and self.search_entry.get_text():
+                self.search_entry.set_text("")
+                # O set_text("") disparará _on_search_changed, que fará a troca de view
+            else:
+                self.view_stack.set_visible_child_name(view_id)
 
     def _create_content(self):
         """Create content area with navigation view."""
@@ -182,6 +192,14 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
         # Hardware
         hardware_view = self._create_list_view("hardware", _("Hardware"), "Hardware")
         self.view_stack.add_titled(hardware_view, "hardware", _("Hardware"))
+
+        # Search Results View (Hidden by default, used when searching)
+        self.search_results_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
+        self.search_results_box.set_margin_top(30)
+        self.search_results_box.set_margin_bottom(30)
+        self.search_results_box.set_margin_start(40)
+        self.search_results_box.set_margin_end(40)
+        self.view_stack.add_titled(self.search_results_box, "search_results", _("Search Results"))
 
         # Set initial visible child
         self.view_stack.set_visible_child_name("launchers")
@@ -381,63 +399,85 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
         return row
 
     def _on_search_changed(self, search_entry):
-        """Handle search text changes."""
+        """Handle search text changes and display global results."""
         search_text = search_entry.get_text().lower().strip()
 
-        # Get current visible view (now it's a Box directly, not a ScrolledWindow)
-        content_box = self.view_stack.get_visible_child()
-        if not content_box:
+        if not search_text:
+            # Se a busca foi limpa, volta para a última view selecionada
+            self.current_view = self.last_active_view
+            self.view_stack.set_visible_child_name(self.last_active_view)
             return
 
-        # For all views: search in grid cards (they all use the same layout now)
-        self._filter_cards_view(content_box, search_text)
-
-    def _filter_cards_view(self, content_box, search_text):
-        """Filter cards based on search text."""
-        # content_box is a Gtk.Box, iterate through children to find FlowBoxes
-        child = content_box.get_first_child()
-        category_title = None
-
+        # Limpa resultados anteriores
+        child = self.search_results_box.get_first_child()
         while child:
-            # Track category titles (for multi-category views)
-            if isinstance(child, Gtk.Label):
-                markup = child.get_label()
-                # Check if this is a category title (has 'large' size in markup)
-                if markup and 'large' in markup and 'xx-large' not in markup:
-                    category_title = child
+            self.search_results_box.remove(child)
+            child = self.search_results_box.get_first_child()
 
-            # Filter cards in flowboxes
-            elif isinstance(child, Gtk.FlowBox):
-                has_visible_cards = False
+        # Define o título da busca
+        title = Gtk.Label()
+        title.set_markup(f"<span size='xx-large' weight='bold'>{_('Search Results')}</span>")
+        title.set_halign(Gtk.Align.START)
+        self.search_results_box.append(title)
 
-                # FlowBox wraps children in FlowBoxChild
-                flowbox_child = child.get_first_child()
-                while flowbox_child:
-                    if isinstance(flowbox_child, Gtk.FlowBoxChild):
-                        # Get the actual card (Box) inside FlowBoxChild
-                        card = flowbox_child.get_child()
+        # Realiza a busca global
+        packages_by_category = get_packages_by_category()
+        found_any = False
 
-                        # Check if card matches search
-                        if search_text and card:
-                            name = getattr(card, 'package_name', '')
-                            desc = getattr(card, 'package_desc', '')
-                            visible = search_text in name or search_text in desc
-                        else:
-                            visible = True
+        for category_key, packages in packages_by_category.items():
+            category_matches = []
+            
+            # Pega o nome da categoria (tupla ou string)
+            cat_name = category_key[1] if isinstance(category_key, tuple) else category_key
+            
+            # Verifica se o termo buscado está no nome da categoria
+            is_cat_match = search_text in cat_name.lower()
 
-                        flowbox_child.set_visible(visible)
-                        if visible:
-                            has_visible_cards = True
+            for package in packages:
+                name_match = search_text in package["name"].lower()
+                desc_match = search_text in package["description"].lower()
+                
+                # Se deu match no pacote OU na categoria, adiciona o pacote
+                if name_match or desc_match or is_cat_match:
+                    category_matches.append(package)
 
-                    flowbox_child = flowbox_child.get_next_sibling()
+            if category_matches:
+                found_any = True
+                
+                # Adiciona cabeçalho da categoria
+                cat_label = Gtk.Label()
+                cat_label.set_markup(f"<span size='large' weight='bold'>{cat_name}</span>")
+                cat_label.set_halign(Gtk.Align.START)
+                cat_label.set_margin_top(20)
+                self.search_results_box.append(cat_label)
 
-                # Hide flowbox and its category title if no visible cards
-                child.set_visible(has_visible_cards or not search_text)
-                if category_title:
-                    category_title.set_visible(has_visible_cards or not search_text)
-                    category_title = None  # Reset for next category
+                # Cria grid para os resultados
+                flowbox = Gtk.FlowBox()
+                flowbox.set_valign(Gtk.Align.START)
+                flowbox.set_max_children_per_line(2)
+                flowbox.set_min_children_per_line(2)
+                flowbox.set_row_spacing(20)
+                flowbox.set_column_spacing(20)
+                flowbox.set_homogeneous(True)
+                flowbox.set_selection_mode(Gtk.SelectionMode.NONE)
+                flowbox.set_margin_top(10)
 
-            child = child.get_next_sibling()
+                for package in category_matches:
+                    card = self._create_large_card(package)
+                    flowbox.append(card)
+
+                self.search_results_box.append(flowbox)
+
+        if not found_any:
+            no_results = Gtk.Label(label=_("No packages found."))
+            no_results.add_css_class("dim-label")
+            no_results.set_margin_top(40)
+            self.search_results_box.append(no_results)
+
+        # Atualiza o estado para view de busca
+        self.current_view = "search_results"
+        self.view_stack.set_visible_child_name("search_results")
+
 
     def _on_package_action(self, button, package_name):
         """Handle install/remove."""
