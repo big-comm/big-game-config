@@ -53,9 +53,6 @@ coverage.xml
 *.log
 .pytest_cache/
 
-# Translations (compiled files - source .po files are kept)
-*.mo
-
 # Virtual environments
 venv/
 env/
