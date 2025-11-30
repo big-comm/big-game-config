@@ -14,9 +14,7 @@ from core.packages import get_packages_by_category
 from core.pacman import is_package_installed
 from ui.install_dialog import InstallDialog
 from utils.i18n import _
-from core.steam_configurer import SteamConfigurer
-from core.mangohud_configurer import MangoHudConfigurer
-from core.corectrl_configurer import CorectrlConfigurer
+
 
 class BigGameConfigWindow(Adw.ApplicationWindow):
     """Main application window with sidebar navigation."""
@@ -33,9 +31,8 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
         self.set_title(_("BigLinux Game Config"))
         self.set_default_size(1100, 700)
 
-        # Current view tracking
+        # Current view
         self.current_view = "launchers"
-        self.last_active_view = "launchers" # Armazena a última view real visitada
 
         # Build UI
         self._build_ui()
@@ -114,21 +111,12 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
 
     def _on_nav_activated(self, list_box, row):
         """Handle navigation row activation."""
-        # Get view_id from the row
+        # Get view_id from the row (ActionRow is passed directly, not wrapped in ListBoxRow)
         view_id = getattr(row, 'view_id', None)
 
         if view_id:
-            # Se não estivermos no modo de busca, salvamos onde o usuário clicou
-            # e limpamos a busca se houver texto
             self.current_view = view_id
-            self.last_active_view = view_id
-            
-            # Se houver texto na busca e o usuário clicar na sidebar, limpamos a busca
-            if hasattr(self, 'search_entry') and self.search_entry.get_text():
-                self.search_entry.set_text("")
-                # O set_text("") disparará _on_search_changed, que fará a troca de view
-            else:
-                self.view_stack.set_visible_child_name(view_id)
+            self.view_stack.set_visible_child_name(view_id)
 
     def _create_content(self):
         """Create content area with navigation view."""
@@ -194,14 +182,6 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
         # Hardware
         hardware_view = self._create_list_view("hardware", _("Hardware"), "Hardware")
         self.view_stack.add_titled(hardware_view, "hardware", _("Hardware"))
-
-        # Search Results View (Hidden by default, used when searching)
-        self.search_results_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
-        self.search_results_box.set_margin_top(30)
-        self.search_results_box.set_margin_bottom(30)
-        self.search_results_box.set_margin_start(40)
-        self.search_results_box.set_margin_end(40)
-        self.view_stack.add_titled(self.search_results_box, "search_results", _("Search Results"))
 
         # Set initial visible child
         self.view_stack.set_visible_child_name("launchers")
@@ -401,85 +381,63 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
         return row
 
     def _on_search_changed(self, search_entry):
-        """Handle search text changes and display global results."""
+        """Handle search text changes."""
         search_text = search_entry.get_text().lower().strip()
 
-        if not search_text:
-            # Se a busca foi limpa, volta para a última view selecionada
-            self.current_view = self.last_active_view
-            self.view_stack.set_visible_child_name(self.last_active_view)
+        # Get current visible view (now it's a Box directly, not a ScrolledWindow)
+        content_box = self.view_stack.get_visible_child()
+        if not content_box:
             return
 
-        # Limpa resultados anteriores
-        child = self.search_results_box.get_first_child()
+        # For all views: search in grid cards (they all use the same layout now)
+        self._filter_cards_view(content_box, search_text)
+
+    def _filter_cards_view(self, content_box, search_text):
+        """Filter cards based on search text."""
+        # content_box is a Gtk.Box, iterate through children to find FlowBoxes
+        child = content_box.get_first_child()
+        category_title = None
+
         while child:
-            self.search_results_box.remove(child)
-            child = self.search_results_box.get_first_child()
+            # Track category titles (for multi-category views)
+            if isinstance(child, Gtk.Label):
+                markup = child.get_label()
+                # Check if this is a category title (has 'large' size in markup)
+                if markup and 'large' in markup and 'xx-large' not in markup:
+                    category_title = child
 
-        # Define o título da busca
-        title = Gtk.Label()
-        title.set_markup(f"<span size='xx-large' weight='bold'>{_('Search Results')}</span>")
-        title.set_halign(Gtk.Align.START)
-        self.search_results_box.append(title)
+            # Filter cards in flowboxes
+            elif isinstance(child, Gtk.FlowBox):
+                has_visible_cards = False
 
-        # Realiza a busca global
-        packages_by_category = get_packages_by_category()
-        found_any = False
+                # FlowBox wraps children in FlowBoxChild
+                flowbox_child = child.get_first_child()
+                while flowbox_child:
+                    if isinstance(flowbox_child, Gtk.FlowBoxChild):
+                        # Get the actual card (Box) inside FlowBoxChild
+                        card = flowbox_child.get_child()
 
-        for category_key, packages in packages_by_category.items():
-            category_matches = []
-            
-            # Pega o nome da categoria (tupla ou string)
-            cat_name = category_key[1] if isinstance(category_key, tuple) else category_key
-            
-            # Verifica se o termo buscado está no nome da categoria
-            is_cat_match = search_text in cat_name.lower()
+                        # Check if card matches search
+                        if search_text and card:
+                            name = getattr(card, 'package_name', '')
+                            desc = getattr(card, 'package_desc', '')
+                            visible = search_text in name or search_text in desc
+                        else:
+                            visible = True
 
-            for package in packages:
-                name_match = search_text in package["name"].lower()
-                desc_match = search_text in package["description"].lower()
-                
-                # Se deu match no pacote OU na categoria, adiciona o pacote
-                if name_match or desc_match or is_cat_match:
-                    category_matches.append(package)
+                        flowbox_child.set_visible(visible)
+                        if visible:
+                            has_visible_cards = True
 
-            if category_matches:
-                found_any = True
-                
-                # Adiciona cabeçalho da categoria
-                cat_label = Gtk.Label()
-                cat_label.set_markup(f"<span size='large' weight='bold'>{cat_name}</span>")
-                cat_label.set_halign(Gtk.Align.START)
-                cat_label.set_margin_top(20)
-                self.search_results_box.append(cat_label)
+                    flowbox_child = flowbox_child.get_next_sibling()
 
-                # Cria grid para os resultados
-                flowbox = Gtk.FlowBox()
-                flowbox.set_valign(Gtk.Align.START)
-                flowbox.set_max_children_per_line(2)
-                flowbox.set_min_children_per_line(2)
-                flowbox.set_row_spacing(20)
-                flowbox.set_column_spacing(20)
-                flowbox.set_homogeneous(True)
-                flowbox.set_selection_mode(Gtk.SelectionMode.NONE)
-                flowbox.set_margin_top(10)
+                # Hide flowbox and its category title if no visible cards
+                child.set_visible(has_visible_cards or not search_text)
+                if category_title:
+                    category_title.set_visible(has_visible_cards or not search_text)
+                    category_title = None  # Reset for next category
 
-                for package in category_matches:
-                    card = self._create_large_card(package)
-                    flowbox.append(card)
-
-                self.search_results_box.append(flowbox)
-
-        if not found_any:
-            no_results = Gtk.Label(label=_("No packages found."))
-            no_results.add_css_class("dim-label")
-            no_results.set_margin_top(40)
-            self.search_results_box.append(no_results)
-
-        # Atualiza o estado para view de busca
-        self.current_view = "search_results"
-        self.view_stack.set_visible_child_name("search_results")
-
+            child = child.get_next_sibling()
 
     def _on_package_action(self, button, package_name):
         """Handle install/remove."""
@@ -523,201 +481,3 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
         self.view_stack.set_visible_child_name(current)
 
         return False
-
-
-    def on_steam_install_clicked(self, button):
-        """
-        Handler para o botão "Instalar Steam"
-        Instala Steam com dependências necessárias
-        """
-        print("[DEBUG] on_steam_install_clicked chamado")
-        
-        # Verificar se Steam já está instalado
-        if is_package_installed('steam'):
-            self.show_notification(
-                "Steam já está instalado",
-                "Remova Steam e tente novamente se desejar reinstalar",
-                level='info'
-            )
-            return
-        
-        # Desabilitar botão durante processo
-        button.set_sensitive(False)
-        self.show_spinner("Instalando Steam com dependências...")
-        
-        try:
-            # Executar instalação
-            success = self.steam_config.install_steam_with_dependencies()
-            
-            if success:
-                self.show_notification(
-                    "✓ Steam Instalado!",
-                    "Steam e suas dependências foram instaladas com sucesso.\n"
-                    "O Steam está pronto para uso.",
-                    level='success'
-                )
-                self.update_package_status('steam', True)
-            else:
-                self.show_notification(
-                    "✗ Erro na Instalação",
-                    "Não foi possível instalar o Steam.\n"
-                    "Verifique sua conexão de internet e permissões.",
-                    level='error'
-                )
-        
-        finally:
-            button.set_sensitive(True)
-            self.hide_spinner()
-
-    def on_mangohud_configure_clicked(self, button):
-        """
-        Handler para o botão "Configurar MangoHud"
-        Aplica configuração do MangoHud para todos os usuários
-        """
-        print("[DEBUG] on_mangohud_configure_clicked chamado")
-        
-        # Verificar se MangoHud está instalado
-        if not is_package_installed('mangohud'):
-            self.show_notification(
-                "MangoHud não instalado",
-                "Instale MangoHud primeiro usando o gerenciador de pacotes.",
-                level='warning'
-            )
-            return
-        
-        # Desabilitar botão durante processo
-        button.set_sensitive(False)
-        self.show_spinner("Configurando MangoHud para todos os usuários...")
-        
-        try:
-            # Executar configuração
-            success = self.mangohud_config.configure_mangohud()
-            
-            if success:
-                self.show_notification(
-                    "✓ MangoHud Configurado!",
-                    "As configurações de MangoHud foram aplicadas com sucesso.\n"
-                    "Serão usadas na próxima execução de jogos.",
-                    level='success'
-                )
-                self.update_package_status('mangohud', True)
-            else:
-                self.show_notification(
-                    "✗ Erro na Configuração",
-                    "Não foi possível configurar o MangoHud.\n"
-                    "Verifique se /etc/skel/.config/MangoHud/MangoHud.conf existe.",
-                    level='error'
-                )
-        
-        finally:
-            button.set_sensitive(True)
-            self.hide_spinner()
-
-    def on_corectrl_configure_clicked(self, button):
-        """
-        Handler para o botão "Configurar Corectrl"
-        Aplica configuração de GRUB e Polkit para Corectrl
-        """
-        print("[DEBUG] on_corectrl_configure_clicked chamado")
-        
-        # Verificar se Corectrl está instalado
-        if not is_package_installed('corectrl'):
-            self.show_notification(
-                "Corectrl não instalado",
-                "Instale Corectrl primeiro usando o gerenciador de pacotes.",
-                level='warning'
-            )
-            return
-        
-        # Mostrar aviso sobre reinicialização
-        response = self.show_confirm_dialog(
-            "Configurar Corectrl?",
-            "A configuração do Corectrl requer:\n\n"
-            "1. Modificação de /etc/default/grub\n"
-            "2. Criação de regra Polkit em /etc/polkit-1/rules.d/\n"
-            "3. Reinicialização do sistema para aplicar\n\n"
-            "Deseja continuar?"
-        )
-        
-        if not response:
-            return
-        
-        # Desabilitar botão durante processo
-        button.set_sensitive(False)
-        self.show_spinner("Configurando Corectrl (GRUB + Polkit)...")
-        
-        try:
-            # Executar configuração
-            success = self.corectrl_config.configure_corectrl()
-            
-            if success:
-                self.show_notification(
-                    "✓ Corectrl Configurado!",
-                    "As configurações de GRUB e Polkit foram aplicadas.\n\n"
-                    "⚠️  IMPORTANTE: Reinicie seu sistema para aplicar as alterações.",
-                    level='success',
-                    timeout=10000
-                )
-                self.update_package_status('corectrl', True)
-                
-                # Oferecer reinicialização
-                self.offer_reboot()
-            else:
-                self.show_notification(
-                    "✗ Erro na Configuração",
-                    "Não foi possível configurar o Corectrl.\n"
-                    "Verifique os logs para mais detalhes.",
-                    level='error'
-                )
-        
-        finally:
-            button.set_sensitive(True)
-            self.hide_spinner()
-
-    def show_notification(self, title, message, level='info', timeout=5000):
-        """
-        Mostra notificação na UI
-        
-        Args:
-            title: Título da notificação
-            message: Mensagem detalhada
-            level: 'info', 'success', 'warning', 'error'
-            timeout: Tempo em ms (0 = sem timeout)
-        """
-        # Implementar usando GLib.timeout_add() para remover após timeout
-        # Ou usar Adwaita.Toast se estiver usando libadwaita
-        print(f"[{level.upper()}] {title}: {message}")
-    
-    def show_spinner(self, message):
-        """Mostra spinner de carregamento"""
-        print(f"[SPINNER] {message}")
-    
-    def hide_spinner(self):
-        """Esconde spinner de carregamento"""
-        print("[SPINNER] Escondido")
-    
-    def update_package_status(self, package_name, installed):
-        """Atualiza status visual do pacote na UI"""
-        print(f"[STATUS] {package_name} = {installed}")
-    
-    def show_confirm_dialog(self, title, message):
-        """
-        Mostra dialog de confirmação
-        
-        Returns:
-            bool: True se usuário clicou OK, False caso contrário
-        """
-        print(f"[CONFIRM] {title}: {message}")
-        return True  # Implementar com Gtk.MessageDialog
-    
-    def offer_reboot(self):
-        """Oferece reinicialização do sistema"""
-        response = self.show_confirm_dialog(
-            "Reiniciar Sistema?",
-            "As alterações de GRUB requerem reinicialização.\n"
-            "Deseja reiniciar agora?"
-        )
-        
-        if response:
-            # systemctl reboot
-            self.steam_config._run_command(['sudo', 'systemctl', 'reboot'])
