@@ -266,61 +266,40 @@ class InstallDialog(Adw.Window):
             self._finalize_operation(success)
 
 
-    def _update_desktop_database(self):
-        """Update desktop database and icon cache after installation."""
+    def _run_configuration(self):
+        """
+        Run post-installation configuration for the package.
+        Returns False to remove from idle queue after execution.
+        """
         try:
-            import subprocess
-            # Update desktop database
-            subprocess.run(
-                ["update-desktop-database", "-q"],
-                capture_output=True,
-                timeout=10
-            )
-            # Update icon cache
-            subprocess.run(
-                ["gtk-update-icon-cache", "-f", "-t", "/usr/share/icons/hicolor"],
-                capture_output=True,
-                timeout=10
-            )
-        except Exception as e:
-            print(f"Warning: Could not update desktop database: {e}")
-
-        return False  # Remove timeout source
-
-        def _run_configuration(self):
-            """
-            Run post-installation configuration for the package.
-            Returns False to remove from idle queue after execution.
-            """
-            try:
-                self._write_to_terminal(f"\n{'='*50}\n")
-                self._write_to_terminal(f"⚙️  {_('Applying configuration')}...\n")
-                self._write_to_terminal(f"{'='*50}\n\n")
+            self._write_to_terminal(f"\n{'='*50}\n")
+            self._write_to_terminal(f"⚙️  {_('Applying configuration')}...\n")
+            self._write_to_terminal(f"{'='*50}\n\n")
             
-                # Check if configurator exists for this package
-                if ConfiguratorsRegistry.has_configurator(self.package_name):
-                    configurator_method = ConfiguratorsRegistry.get_configurator_method(
-                        self.package_name
-                    )
+            # Check if configurator exists for this package
+            if ConfiguratorsRegistry.has_configurator(self.package_name):
+                configurator_method = ConfiguratorsRegistry.get_configurator_method(
+                    self.package_name
+                )
                 
-                    if configurator_method:
-                        self._write_to_terminal(
-                            f"🔧 {_('Configuring')} {self.package_name}...\n\n"
-                        )
-                        # Execute configuration
-                        config_success = configurator_method()
-                        self._finalize_operation(config_success)
-                    else:
-                        self._write_to_terminal(
-                            f"⚠️  {_('Configuration method not found')}\n"
-                        )
-                        self._finalize_operation(True)
-                else:
-                    # No specific configurator for this package
+                if configurator_method:
                     self._write_to_terminal(
-                        f"ℹ️  {_('No configuration needed for')} {self.package_name}\n"
+                        f"🔧 {_('Configuring')} {self.package_name}...\n\n"
+                    )
+                    # Execute configuration
+                    config_success = configurator_method()
+                    self._finalize_operation(config_success)
+                else:
+                    self._write_to_terminal(
+                        f"⚠️  {_('Configuration method not found')}\n"
                     )
                     self._finalize_operation(True)
+            else:
+                # No specific configurator for this package
+                self._write_to_terminal(
+                    f"ℹ️  {_('No configuration needed for')} {self.package_name}\n"
+                )
+                self._finalize_operation(True)
         
             except Exception as e:
                 self._write_to_terminal(f"\n⚠️  {_('Error during configuration')}: {str(e)}\n")
@@ -363,6 +342,27 @@ class InstallDialog(Adw.Window):
         # Update desktop database if installation succeeded
         if success and self.operation == "install":
             GLib.timeout_add(500, self._update_desktop_database)
+
+    def _update_desktop_database(self):
+        """Update desktop database and icon cache after installation."""
+        try:
+            import subprocess
+            # Update desktop database
+            subprocess.run(
+                ["update-desktop-database", "-q"],
+                capture_output=True,
+                timeout=10
+            )
+            # Update icon cache
+            subprocess.run(
+                ["gtk-update-icon-cache", "-f", "-t", "/usr/share/icons/hicolor"],
+                capture_output=True,
+                timeout=10
+            )
+        except Exception as e:
+            print(f"Warning: Could not update desktop database: {e}")
+
+        return False  # Remove timeout source
 
 
     def _on_cancel(self, button):
