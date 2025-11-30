@@ -187,6 +187,11 @@ msgstr "O aplikácii"
 msgid "Quit"
 msgstr "Ukončiť"
 # 
+# File: usr/share/big-game-config/ui/window.py, line: 192
+#: NEEDS WORK
+msgid "Search Results"
+msgstr "Výsledky vyhľadávania"
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 18
 #: NEEDS WORK
 msgid "Game Launchers"

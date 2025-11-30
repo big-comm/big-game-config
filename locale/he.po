@@ -187,6 +187,11 @@ msgstr "אודות"
 msgid "Quit"
 msgstr "יציאה"
 # 
+# File: usr/share/big-game-config/ui/window.py, line: 192
+#: NEEDS WORK
+msgid "Search Results"
+msgstr "תוצאות חיפוש"
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 18
 #: NEEDS WORK
 msgid "Game Launchers"

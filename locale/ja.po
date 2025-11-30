@@ -187,6 +187,11 @@ msgstr "情報"
 msgid "Quit"
 msgstr "終了"
 # 
+# File: usr/share/big-game-config/ui/window.py, line: 192
+#: NEEDS WORK
+msgid "Search Results"
+msgstr "検索結果"
+# 
 # File: usr/share/big-game-config/core/packages.py, line: 18
 #: NEEDS WORK
 msgid "Game Launchers"
