@@ -171,17 +171,25 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
         launchers_view = self._create_launchers_view()
         self.view_stack.add_titled(launchers_view, "launchers", _("Launchers"))
 
-        # Emulators
-        emulators_view = self._create_list_view("emulators", _("Emulators"), "Emulator")
+        # Emulators - Filtro pelo ícone 'input-gaming'
+        emulators_view = self._create_list_view("emulators", _("Emulators"), "input-gaming")
         self.view_stack.add_titled(emulators_view, "emulators", _("Emulators"))
 
-        # Tools
-        tools_view = self._create_list_view("tools", _("Tools"), "Performance")
+        # Tools - Filtro pelo ícone 'speedometer'
+        tools_view = self._create_list_view("tools", _("Tools"), "speedometer")
         self.view_stack.add_titled(tools_view, "tools", _("Tools"))
 
-        # Hardware
-        hardware_view = self._create_list_view("hardware", _("Hardware"), "Hardware")
+        # Hardware - Filtro pelo ícone 'computer'
+        hardware_view = self._create_list_view("hardware", _("Hardware"), "computer")
         self.view_stack.add_titled(hardware_view, "hardware", _("Hardware"))
+
+        # Search Results View
+        self.search_results_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
+        self.search_results_box.set_margin_top(30)
+        self.search_results_box.set_margin_bottom(30)
+        self.search_results_box.set_margin_start(40)
+        self.search_results_box.set_margin_end(40)
+        self.view_stack.add_titled(self.search_results_box, "search_results", _("Search Results"))
 
         # Set initial visible child
         self.view_stack.set_visible_child_name("launchers")
@@ -201,7 +209,7 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
         title.set_halign(Gtk.Align.START)
         box.append(title)
 
-        # FlowBox for cards (maintains size when children are hidden)
+        # FlowBox for cards
         flowbox = Gtk.FlowBox()
         flowbox.set_valign(Gtk.Align.START)
         flowbox.set_max_children_per_line(2)
@@ -214,10 +222,19 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
         # Get launcher packages
         packages_by_category = get_packages_by_category()
         launchers = []
+        
+        # Filtra usando a CHAVE (ÍCONE) que não muda com a tradução
         for cat_key, packages in packages_by_category.items():
-            if "Launcher" in cat_key[1]:
-                launchers = packages
-                break
+            # cat_key é uma tupla: ("applications-games-symbolic", "Nome Traduzido")
+            if isinstance(cat_key, tuple):
+                icon_name = cat_key[0] # Pega o ícone
+                # Verifica o ícone definido em packages.py
+                if "applications-games-symbolic" in icon_name:
+                    launchers.extend(packages)
+            else:
+                # Fallback para compatibilidade se a chave for apenas string (versões antigas)
+                if "launcher" in str(cat_key).lower():
+                    launchers.extend(packages)
 
         # Add cards
         for package in launchers:
@@ -246,16 +263,36 @@ class BigGameConfigWindow(Adw.ApplicationWindow):
         # Get packages
         packages_by_category = get_packages_by_category()
 
+        # Normaliza o filtro
+        filter_str = category_filter.lower()
+
         for cat_key, packages in packages_by_category.items():
-            if category_filter in cat_key[1]:
-                # Category title
+            # Define se encontramos a categoria correta
+            is_match = False
+            display_name = ""
+
+            if isinstance(cat_key, tuple):
+                # Lógica robusta: Verifica o ÍCONE (cat_key[0])
+                icon_name = cat_key[0].lower()
+                display_name = cat_key[1]
+                
+                if filter_str in icon_name:
+                    is_match = True
+            else:
+                # Lógica legada: Verifica o NOME
+                display_name = str(cat_key)
+                if filter_str in display_name.lower():
+                    is_match = True
+
+            if is_match:
+                # Category title (Nome traduzido para exibição)
                 category_title = Gtk.Label()
-                category_title.set_markup(f"<span size='large' weight='bold'>{cat_key[1]}</span>")
+                category_title.set_markup(f"<span size='large' weight='bold'>{display_name}</span>")
                 category_title.set_halign(Gtk.Align.START)
                 category_title.set_margin_top(20)
                 box.append(category_title)
 
-                # FlowBox for cards (maintains size when children are hidden)
+                # FlowBox
                 flowbox = Gtk.FlowBox()
                 flowbox.set_valign(Gtk.Align.START)
                 flowbox.set_max_children_per_line(2)
