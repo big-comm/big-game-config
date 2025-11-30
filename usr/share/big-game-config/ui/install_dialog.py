@@ -12,6 +12,8 @@ gi.require_version("Vte", "3.91")
 from gi.repository import Gtk, Adw, Vte, GLib
 from core.terminal_colors import apply_theme_to_terminal
 from utils.i18n import _
+from core.configurators_registry import ConfiguratorsRegistry
+
 
 
 class InstallDialog(Adw.Window):
@@ -248,40 +250,21 @@ class InstallDialog(Adw.Window):
     def _on_operation_complete(self, success):
         """
         Handle operation completion.
-
         Args:
             success (bool): Whether the operation succeeded
         """
         if self.is_complete:
-            return  # Avoid double completion
+            return # Avoid double completion
 
         self.is_complete = True
         self.success = success
 
-        # Update desktop database if installation was successful
+        # NEW: Se instalação bem-sucedida, aplicar configuração
         if success and self.operation == "install":
-            GLib.timeout_add(500, self._update_desktop_database)
-
-        # Update status label
-        if success:
-            operation_text = _("installed") if self.operation == "install" else _("removed")
-            status_text = f"✓ {self.package_name} {operation_text} {_('successfully')}!"
-            self.status_label.set_markup(f"<span size='large' weight='bold' foreground='#26A269'>{status_text}</span>")
+            GLib.idle_add(self._run_configuration)
         else:
-            operation_text = _("install") if self.operation == "install" else _("remove")
-            status_text = f"✗ {_('Failed to')} {operation_text} {self.package_name}"
-            self.status_label.set_markup(f"<span size='large' weight='bold' foreground='#C01C28'>{status_text}</span>")
+            self._finalize_operation(success)
 
-        # Update progress bar
-        self.progress_bar.set_fraction(1.0 if success else 0.0)
-
-        # Enable close button, disable cancel
-        self.close_button.set_sensitive(True)
-        self.cancel_button.set_sensitive(False)
-
-        # Auto-expand terminal on error
-        if not success and not self.revealer.get_reveal_child():
-            self._toggle_terminal(None)
 
     def _update_desktop_database(self):
         """Update desktop database and icon cache after installation."""
@@ -303,6 +286,84 @@ class InstallDialog(Adw.Window):
             print(f"Warning: Could not update desktop database: {e}")
 
         return False  # Remove timeout source
+
+        def _run_configuration(self):
+            """
+            Run post-installation configuration for the package.
+            Returns False to remove from idle queue after execution.
+            """
+            try:
+                self._write_to_terminal(f"\n{'='*50}\n")
+                self._write_to_terminal(f"⚙️  {_('Applying configuration')}...\n")
+                self._write_to_terminal(f"{'='*50}\n\n")
+            
+                # Check if configurator exists for this package
+                if ConfiguratorsRegistry.has_configurator(self.package_name):
+                    configurator_method = ConfiguratorsRegistry.get_configurator_method(
+                        self.package_name
+                    )
+                
+                    if configurator_method:
+                        self._write_to_terminal(
+                            f"🔧 {_('Configuring')} {self.package_name}...\n\n"
+                        )
+                        # Execute configuration
+                        config_success = configurator_method()
+                        self._finalize_operation(config_success)
+                    else:
+                        self._write_to_terminal(
+                            f"⚠️  {_('Configuration method not found')}\n"
+                        )
+                        self._finalize_operation(True)
+                else:
+                    # No specific configurator for this package
+                    self._write_to_terminal(
+                        f"ℹ️  {_('No configuration needed for')} {self.package_name}\n"
+                    )
+                    self._finalize_operation(True)
+        
+            except Exception as e:
+                self._write_to_terminal(f"\n⚠️  {_('Error during configuration')}: {str(e)}\n")
+                self._finalize_operation(True)  # Instalado, mas config pode ter falhado
+        
+            return False  # Remove from idle queue
+    
+    def _finalize_operation(self, success):
+        """
+        Finalize the operation with success/error message.
+        Args:
+            success (bool): Whether the operation was successful
+        """
+        # Update status label
+        if success:
+            operation_text = _(
+                "installed" if self.operation == "install" else "removed"
+            )
+            status_text = (
+                f"✓ {self.package_name} {operation_text} "
+                f"{_('successfully')}!"
+            )
+            self.status_label.set_markup(f"{status_text}")
+        else:
+            operation_text = "install" if self.operation == "install" else "remove"
+            status_text = f"✗ {_('Failed to')} {operation_text} {self.package_name}"
+            self.status_label.set_markup(f"{status_text}")
+        
+        # Update progress bar
+        self.progress_bar.set_fraction(1.0 if success else 0.0)
+        
+        # Enable close button, disable cancel
+        self.close_button.set_sensitive(True)
+        self.cancel_button.set_sensitive(False)
+        
+        # Auto-expand terminal on error
+        if not success and not self.revealer.get_reveal_child():
+            self._toggle_terminal(None)
+        
+        # Update desktop database if installation succeeded
+        if success and self.operation == "install":
+            GLib.timeout_add(500, self._update_desktop_database)
+
 
     def _on_cancel(self, button):
         """Handle cancel button click."""
