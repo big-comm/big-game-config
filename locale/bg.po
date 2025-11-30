@@ -187,17 +187,6 @@ msgstr "За програмата"
 msgid "Quit"
 msgstr "Изход"
 # 
-# File: usr/share/big-game-config/ui/window.py, line: 202
-# File: usr/share/big-game-config/ui/window.py, line: 419
-#: NEEDS WORK
-msgid "Search Results"
-msgstr "Резултати от търсене"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 472
-#: NEEDS WORK
-msgid "No packages found."
-msgstr "Няма намерени пакети."
-# 
 # File: usr/share/big-game-config/core/packages.py, line: 18
 #: NEEDS WORK
 msgid "Game Launchers"

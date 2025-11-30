@@ -187,17 +187,6 @@ msgstr "Про програму"
 msgid "Quit"
 msgstr "Quit"
 # 
-# File: usr/share/big-game-config/ui/window.py, line: 202
-# File: usr/share/big-game-config/ui/window.py, line: 419
-#: NEEDS WORK
-msgid "Search Results"
-msgstr "Результати пошуку"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 472
-#: NEEDS WORK
-msgid "No packages found."
-msgstr "Немає знайдених пакетів."
-# 
 # File: usr/share/big-game-config/core/packages.py, line: 18
 #: NEEDS WORK
 msgid "Game Launchers"

@@ -188,17 +188,6 @@ msgstr "À propos"
 msgid "Quit"
 msgstr "Quitter"
 # 
-# File: usr/share/big-game-config/ui/window.py, line: 202
-# File: usr/share/big-game-config/ui/window.py, line: 419
-#: NEEDS WORK
-msgid "Search Results"
-msgstr "Résultats de recherche"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 472
-#: NEEDS WORK
-msgid "No packages found."
-msgstr "Aucun paquet trouvé."
-# 
 # File: usr/share/big-game-config/core/packages.py, line: 18
 #: NEEDS WORK
 msgid "Game Launchers"

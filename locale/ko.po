@@ -187,17 +187,6 @@ msgstr "정보"
 msgid "Quit"
 msgstr "종료"
 # 
-# File: usr/share/big-game-config/ui/window.py, line: 202
-# File: usr/share/big-game-config/ui/window.py, line: 419
-#: NEEDS WORK
-msgid "Search Results"
-msgstr "검색 결과"
-# 
-# File: usr/share/big-game-config/ui/window.py, line: 472
-#: NEEDS WORK
-msgid "No packages found."
-msgstr "패키지를 찾을 수 없습니다."
-# 
 # File: usr/share/big-game-config/core/packages.py, line: 18
 #: NEEDS WORK
 msgid "Game Launchers"
