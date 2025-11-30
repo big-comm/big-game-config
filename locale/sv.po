@@ -71,30 +71,40 @@ msgstr "Stäng"
 msgid "Error"
 msgstr "Fel"
 # 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 297
+#: NEEDS WORK
+msgid "Applying configuration"
+msgstr "Tillämpa konfiguration"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 308
+#: NEEDS WORK
+msgid "Configuring"
+msgstr "Konfigurera"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 315
+#: NEEDS WORK
+msgid "Configuration method not found"
+msgstr "Konfigurationsmetod hittades inte"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 321
+#: NEEDS WORK
+msgid "No configuration needed for"
+msgstr "Ingen konfiguration behövs för"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 326
+#: NEEDS WORK
+msgid "Error during configuration"
+msgstr "Fel vid konfiguration"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 267
 #: NEEDS WORK
 msgid "installed"
 msgstr "installerad"
 # 
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 267
-#: NEEDS WORK
-msgid "removed"
-msgstr "borttagen"
-# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 268
 #: NEEDS WORK
 msgid "successfully"
 msgstr "lyckat"
-# 
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 271
-#: NEEDS WORK
-msgid "install"
-msgstr "installera"
-# 
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 271
-#: NEEDS WORK
-msgid "remove"
-msgstr "ta bort"
 # 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 272
 #: NEEDS WORK

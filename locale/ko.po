@@ -71,30 +71,40 @@ msgstr "닫기"
 msgid "Error"
 msgstr "오류"
 # 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 297
+#: NEEDS WORK
+msgid "Applying configuration"
+msgstr "구성 적용 중"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 308
+#: NEEDS WORK
+msgid "Configuring"
+msgstr "구성 중"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 315
+#: NEEDS WORK
+msgid "Configuration method not found"
+msgstr "구성 방법을 찾을 수 없습니다."
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 321
+#: NEEDS WORK
+msgid "No configuration needed for"
+msgstr "구성이 필요하지 않습니다."
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 326
+#: NEEDS WORK
+msgid "Error during configuration"
+msgstr "구성 중 오류"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 267
 #: NEEDS WORK
 msgid "installed"
 msgstr "설치됨"
 # 
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 267
-#: NEEDS WORK
-msgid "removed"
-msgstr "제거됨"
-# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 268
 #: NEEDS WORK
 msgid "successfully"
 msgstr "성공적으로"
-# 
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 271
-#: NEEDS WORK
-msgid "install"
-msgstr "설치"
-# 
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 271
-#: NEEDS WORK
-msgid "remove"
-msgstr "제거"
 # 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 272
 #: NEEDS WORK

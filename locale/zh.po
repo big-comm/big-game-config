@@ -71,30 +71,40 @@ msgstr "关闭"
 msgid "Error"
 msgstr "错误"
 # 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 297
+#: NEEDS WORK
+msgid "Applying configuration"
+msgstr "应用配置"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 308
+#: NEEDS WORK
+msgid "Configuring"
+msgstr "配置中"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 315
+#: NEEDS WORK
+msgid "Configuration method not found"
+msgstr "未找到配置方法"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 321
+#: NEEDS WORK
+msgid "No configuration needed for"
+msgstr "无需配置"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 326
+#: NEEDS WORK
+msgid "Error during configuration"
+msgstr "配置期间出错"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 267
 #: NEEDS WORK
 msgid "installed"
 msgstr "已安装"
 # 
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 267
-#: NEEDS WORK
-msgid "removed"
-msgstr "已移除"
-# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 268
 #: NEEDS WORK
 msgid "successfully"
 msgstr "成功"
-# 
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 271
-#: NEEDS WORK
-msgid "install"
-msgstr "安装"
-# 
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 271
-#: NEEDS WORK
-msgid "remove"
-msgstr "移除"
 # 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 272
 #: NEEDS WORK

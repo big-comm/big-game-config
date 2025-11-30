@@ -71,30 +71,40 @@ msgstr "סגור"
 msgid "Error"
 msgstr "שגיאה"
 # 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 297
+#: NEEDS WORK
+msgid "Applying configuration"
+msgstr "מיישם תצורה"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 308
+#: NEEDS WORK
+msgid "Configuring"
+msgstr "מִתְקוֹנֵן"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 315
+#: NEEDS WORK
+msgid "Configuration method not found"
+msgstr "שיטת קונפיגורציה לא נמצאה"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 321
+#: NEEDS WORK
+msgid "No configuration needed for"
+msgstr "אין צורך בהגדרה עבור"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 326
+#: NEEDS WORK
+msgid "Error during configuration"
+msgstr "שגיאה במהלך ההגדרה"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 267
 #: NEEDS WORK
 msgid "installed"
 msgstr "מותקן"
 # 
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 267
-#: NEEDS WORK
-msgid "removed"
-msgstr "הוסר"
-# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 268
 #: NEEDS WORK
 msgid "successfully"
 msgstr "בהצלחה"
-# 
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 271
-#: NEEDS WORK
-msgid "install"
-msgstr "התקן"
-# 
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 271
-#: NEEDS WORK
-msgid "remove"
-msgstr "הסר"
 # 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 272
 #: NEEDS WORK

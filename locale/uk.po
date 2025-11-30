@@ -71,30 +71,40 @@ msgstr "Закрити"
 msgid "Error"
 msgstr "Помилка"
 # 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 297
+#: NEEDS WORK
+msgid "Applying configuration"
+msgstr "Застосування конфігурації"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 308
+#: NEEDS WORK
+msgid "Configuring"
+msgstr "Конфігурування"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 315
+#: NEEDS WORK
+msgid "Configuration method not found"
+msgstr "Метод конфігурації не знайдено"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 321
+#: NEEDS WORK
+msgid "No configuration needed for"
+msgstr "Немає необхідності в налаштуванні для"
+# 
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 326
+#: NEEDS WORK
+msgid "Error during configuration"
+msgstr "Помилка під час налаштування"
+# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 267
 #: NEEDS WORK
 msgid "installed"
 msgstr "installed"
 # 
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 267
-#: NEEDS WORK
-msgid "removed"
-msgstr "removed"
-# 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 268
 #: NEEDS WORK
 msgid "successfully"
 msgstr "успішно"
-# 
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 271
-#: NEEDS WORK
-msgid "install"
-msgstr "інсталювати"
-# 
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 271
-#: NEEDS WORK
-msgid "remove"
-msgstr "remove"
 # 
 # File: usr/share/big-game-config/ui/install_dialog.py, line: 272
 #: NEEDS WORK

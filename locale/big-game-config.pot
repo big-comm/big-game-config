@@ -36,65 +36,75 @@ msgid   "Install and manage your gaming applications and tools.\n"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 45
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 70
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 47
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 72
 msgid   "Installing"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 45
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 70
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 47
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 72
 msgid   "Removing"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 97
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 99
 msgid   "Installation details"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 159
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 161
 msgid   "Cancel"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 163
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 165
 msgid   "Close"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 225
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 233
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 227
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 235
 msgid   "Error"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 267
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 297
+msgid   "Applying configuration"
+msgstr  ""
+
+#
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 308
+msgid   "Configuring"
+msgstr  ""
+
+#
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 315
+msgid   "Configuration method not found"
+msgstr  ""
+
+#
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 321
+msgid   "No configuration needed for"
+msgstr  ""
+
+#
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 326
+msgid   "Error during configuration"
+msgstr  ""
+
+#
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 340
 msgid   "installed"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 267
-msgid   "removed"
-msgstr  ""
-
-#
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 268
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 344
 msgid   "successfully"
 msgstr  ""
 
 #
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 271
-msgid   "install"
-msgstr  ""
-
-#
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 271
-msgid   "remove"
-msgstr  ""
-
-#
-# File: usr/share/big-game-config/ui/install_dialog.py, line: 272
+# File: usr/share/big-game-config/ui/install_dialog.py, line: 349
 msgid   "Failed to"
 msgstr  ""
 
