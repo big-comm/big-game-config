@@ -10,10 +10,10 @@ gi.require_version("Adw", "1")
 gi.require_version("Vte", "3.91")
 
 from gi.repository import Gtk, Adw, Vte, GLib
+
 from core.terminal_colors import apply_theme_to_terminal
 from utils.i18n import _
 from core.configurators_registry import ConfiguratorsRegistry
-
 
 
 class InstallDialog(Adw.Window):
@@ -71,7 +71,7 @@ class InstallDialog(Adw.Window):
         self.status_label = Gtk.Label()
         operation_text = _("Installing") if self.operation == "install" else _("Removing")
         status_text = f"{operation_text} {self.package_name}..."
-        self.status_label.set_markup(f"<span size='large' weight='bold'>{status_text}</span>")
+        self.status_label.set_markup(f"{status_text}")
         self.status_label.set_halign(Gtk.Align.START)
         header_box.append(self.status_label)
 
@@ -132,6 +132,7 @@ class InstallDialog(Adw.Window):
 
         # Set terminal font
         from gi.repository import Pango
+
         font_desc = Pango.FontDescription.from_string("Monospace 10")
         self.terminal.set_font(font_desc)
 
@@ -141,8 +142,8 @@ class InstallDialog(Adw.Window):
         scrolled_window.set_child(self.terminal)
         terminal_frame.set_child(scrolled_window)
         self.revealer.set_child(terminal_frame)
-
         expander_box.append(self.revealer)
+
         main_box.append(expander_box)
 
         # Spacer
@@ -217,10 +218,10 @@ class InstallDialog(Adw.Window):
                 GLib.SpawnFlags.DO_NOT_REAP_CHILD,
                 None,  # child setup
                 None,  # child setup data
-                -1,    # timeout
+                -1,  # timeout
                 None,  # cancellable
                 self._on_spawn_complete,
-                None   # user data
+                None  # user data
             )
 
         except Exception as e:
@@ -250,11 +251,12 @@ class InstallDialog(Adw.Window):
     def _on_operation_complete(self, success):
         """
         Handle operation completion.
+
         Args:
             success (bool): Whether the operation succeeded
         """
         if self.is_complete:
-            return # Avoid double completion
+            return  # Avoid double completion
 
         self.is_complete = True
         self.success = success
@@ -265,7 +267,6 @@ class InstallDialog(Adw.Window):
         else:
             self._finalize_operation(success)
 
-
     def _run_configuration(self):
         """
         Run post-installation configuration for the package.
@@ -275,13 +276,13 @@ class InstallDialog(Adw.Window):
             self._write_to_terminal(f"\n{'='*50}\n")
             self._write_to_terminal(f"⚙️  {_('Applying configuration')}...\n")
             self._write_to_terminal(f"{'='*50}\n\n")
-            
+
             # Check if configurator exists for this package
             if ConfiguratorsRegistry.has_configurator(self.package_name):
                 configurator_method = ConfiguratorsRegistry.get_configurator_method(
                     self.package_name
                 )
-                
+
                 if configurator_method:
                     self._write_to_terminal(
                         f"🔧 {_('Configuring')} {self.package_name}...\n\n"
@@ -300,16 +301,17 @@ class InstallDialog(Adw.Window):
                     f"ℹ️  {_('No configuration needed for')} {self.package_name}\n"
                 )
                 self._finalize_operation(True)
-        
-            except Exception as e:
-                self._write_to_terminal(f"\n⚠️  {_('Error during configuration')}: {str(e)}\n")
-                self._finalize_operation(True)  # Instalado, mas config pode ter falhado
-        
-            return False  # Remove from idle queue
-    
+
+        except Exception as e:
+            self._write_to_terminal(f"\n⚠️  {_('Error during configuration')}: {str(e)}\n")
+            self._finalize_operation(True)  # Instalado, mas config pode ter falhado
+
+        return False  # Remove from idle queue
+
     def _finalize_operation(self, success):
         """
         Finalize the operation with success/error message.
+
         Args:
             success (bool): Whether the operation was successful
         """
@@ -327,18 +329,18 @@ class InstallDialog(Adw.Window):
             operation_text = "install" if self.operation == "install" else "remove"
             status_text = f"✗ {_('Failed to')} {operation_text} {self.package_name}"
             self.status_label.set_markup(f"{status_text}")
-        
+
         # Update progress bar
         self.progress_bar.set_fraction(1.0 if success else 0.0)
-        
+
         # Enable close button, disable cancel
         self.close_button.set_sensitive(True)
         self.cancel_button.set_sensitive(False)
-        
+
         # Auto-expand terminal on error
         if not success and not self.revealer.get_reveal_child():
             self._toggle_terminal(None)
-        
+
         # Update desktop database if installation succeeded
         if success and self.operation == "install":
             GLib.timeout_add(500, self._update_desktop_database)
@@ -347,23 +349,25 @@ class InstallDialog(Adw.Window):
         """Update desktop database and icon cache after installation."""
         try:
             import subprocess
+
             # Update desktop database
             subprocess.run(
                 ["update-desktop-database", "-q"],
                 capture_output=True,
                 timeout=10
             )
+
             # Update icon cache
             subprocess.run(
                 ["gtk-update-icon-cache", "-f", "-t", "/usr/share/icons/hicolor"],
                 capture_output=True,
                 timeout=10
             )
+
         except Exception as e:
             print(f"Warning: Could not update desktop database: {e}")
 
         return False  # Remove timeout source
-
 
     def _on_cancel(self, button):
         """Handle cancel button click."""
@@ -371,9 +375,11 @@ class InstallDialog(Adw.Window):
             try:
                 import os
                 import signal
+
                 os.kill(self.child_pid, signal.SIGTERM)
             except:
                 pass
+
         self.close()
 
     def _on_close(self, button):
