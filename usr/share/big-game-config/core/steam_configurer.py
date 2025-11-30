@@ -28,7 +28,7 @@ class SteamConfigurer(ConfigurationManager):
         
         try:
             # Construir comando pacman
-            cmd = ['sudo', 'pacman', '-S', '--noconfirm'] + self.STEAM_PACKAGES
+            cmd = ['pkexec', 'pacman', '-S', '--noconfirm'] + self.STEAM_PACKAGES
             
             self._print_status(f"Instalando pacotes: {', '.join(self.STEAM_PACKAGES)}", 'cyan')
             
